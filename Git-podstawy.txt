@@ -8,3 +8,6 @@ git status
 Polecenia Vim'a
 [Esc]:wq[Enter] - zapisze zmiany
 [Esc]:q![Enter] - bez zapisywania zmian
+
+
+Inne:
