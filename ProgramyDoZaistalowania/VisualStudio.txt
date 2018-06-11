@@ -1,0 +1,5 @@
+Bêdziemy instalowaæ 
+
+1. Visual Studio
+2. Resharper
+3. NCrunch
