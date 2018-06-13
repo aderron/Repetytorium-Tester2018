@@ -5,7 +5,7 @@ namespace TheProjectEulerLibrary
 {
     public class ProjectEulerLibrary
     {
-        public long ClassicMultiplesOf3And5(int limit)
+        public static long ClassicMultiplesOf3And5(int limit)
         {
             long sum = 0;
             for (int i = 1; i < limit; i++)
@@ -19,11 +19,10 @@ namespace TheProjectEulerLibrary
             return sum;
         }
 
-        public long LinqMultiplesOf3And5(int limit)
+        public static long LinqMultiplesOf3And5(int limit)
         {
             var result = Enumerable.Range(0, limit)
                 .Where(i => i % 3 == 0 || i % 5 == 0)
-                .Select(i => (long)i)
                 .Sum();
             return result;
         }
