@@ -1,4 +1,4 @@
-Wednesday plan
+Thursday's plan
 ====
 
 1. We will start by reviewing your homework, talk about ISTQB chapter and english, look at your GitHub repositories and quick quiz about variable sizes.
