@@ -23,8 +23,26 @@ namespace TheProjectEulerLibrary
         {
             var result = Enumerable.Range(0, limit)
                 .Where(i => i % 3 == 0 || i % 5 == 0)
+                .Select(i => (long)i)
                 .Sum();
             return result;
+        }
+
+        public static uint Abs(int value)
+        {
+            if (value < 0)
+            {
+                return (uint)-value;
+            }
+
+            return (uint)value;
+        }
+
+        public static uint AbsTernary(int value)
+        {
+            // Ternary operator:  x = bool ? a : b
+            var x = value < 0 ? (uint)-value : (uint)value;
+            return x;
         }
     }
 }
