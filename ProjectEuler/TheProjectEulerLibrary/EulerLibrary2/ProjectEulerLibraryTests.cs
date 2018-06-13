@@ -61,5 +61,27 @@ namespace TheProjectEulerLibrary
             var result = ProjectEulerLibrary.LinqMultiplesOf3And5(1000);
             Assert.AreEqual(233168, result);
         }
+
+        [TestCase(2, 2, TestName ="ABS 2")]
+        [TestCase(0, 0, TestName = "ABS 0")]
+        [TestCase(1, 1, TestName = "ABS 1")]
+        [TestCase(-1, 1, TestName = "ABS -1")]
+        [TestCase(-2147483648, 2147483648, TestName = "ABS minValue")]
+        [TestCase(2147483647, 2147483647, TestName = "ABS maxValue")]
+        public void Abs(int input, long result)
+        {
+            Assert.AreEqual(result, ProjectEulerLibrary.Abs(input));
+        }
+
+        [TestCase(2, 2, TestName = "AbsTernary 2")]
+        [TestCase(0, 0, TestName = "AbsTernary 0")]
+        [TestCase(1, 1, TestName = "AbsTernary 1")]
+        [TestCase(-1, 1, TestName = "AbsTernary -1")]
+        [TestCase(-2147483648, 2147483648, TestName = "AbsTernary minValue")]
+        [TestCase(2147483647, 2147483647, TestName = "AbsTernary maxValue")]
+        public void AbsTernary(int input, long result)
+        {
+            Assert.AreEqual(result, ProjectEulerLibrary.AbsTernary(input));
+        }
     }
 }
