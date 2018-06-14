@@ -42,7 +42,7 @@ namespace TheProjectEulerLibrary
         {
             // Ternary operator:  x = bool ? a : b
             var x = value < 0 ? (uint)-value : (uint)value;
-            return x;
+            return x; //taki tam edit żeby coś sprawdzić
         }
     }
 }

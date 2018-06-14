@@ -80,6 +80,7 @@ namespace TheProjectEulerLibrary
         [TestCase(-2147483648, 2147483648, TestName = "AbsTernary minValue")]
         [TestCase(2147483647, 2147483647, TestName = "AbsTernary maxValue")]
         public void AbsTernary(int input, long result)
+        //taki tam edit żeby coś sprawdzić
         {
             Assert.AreEqual(result, ProjectEulerLibrary.AbsTernary(input));
         }
