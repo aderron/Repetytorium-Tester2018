@@ -3,7 +3,7 @@ using System;
 
 namespace EulerLibrary2.PasswordValidator
 {
-    interface IPasswordValidator
+    public interface IPasswordValidator
     {
         string Name { get; }
 

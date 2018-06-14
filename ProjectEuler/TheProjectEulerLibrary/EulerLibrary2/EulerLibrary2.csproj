@@ -37,6 +37,9 @@
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PasswordValidator">
+      <HintPath>.\PasswordValidator.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Inheritance\Shape.cs" />
     <Compile Include="Inheritance\ShapeTests.cs" />
-    <Compile Include="PasswordValidator\IPasswordValidat.cs" />
+    <Compile Include="PasswordValidator\IPasswordValidator.cs" />
     <Compile Include="PasswordValidator\MockPasswordValidator.cs" />
     <Compile Include="PasswordValidator\PasswordValidatorTests.cs" />
     <Compile Include="ProjectEulerLibrary.cs" />
@@ -60,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
