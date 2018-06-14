@@ -51,6 +51,7 @@
     <Compile Include="Inheritance\ShapeTests.cs" />
     <Compile Include="PasswordValidator\IPasswordValidat.cs" />
     <Compile Include="PasswordValidator\MockPasswordValidator.cs" />
+    <Compile Include="PasswordValidator\PasswordValidatorTests.cs" />
     <Compile Include="ProjectEulerLibrary.cs" />
     <Compile Include="ProjectEulerLibraryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
