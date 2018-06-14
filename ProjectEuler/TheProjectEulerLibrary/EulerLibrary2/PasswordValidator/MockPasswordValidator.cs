@@ -6,6 +6,14 @@ namespace EulerLibrary2.PasswordValidator
     {
         public string Name => throw new NotImplementedException();
 
-        public bool IsPasswordValid(string password) => throw new NotImplementedException();
+        public bool IsPasswordValid(string password)
+        {
+            if (password.Length < 2)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

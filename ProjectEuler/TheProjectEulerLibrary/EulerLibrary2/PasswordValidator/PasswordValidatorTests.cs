@@ -19,18 +19,15 @@ namespace EulerLibrary2.PasswordValidator
          * Can not have consecutive characters (same character twice, ie. x22xd)
          * 
          * */
+
+        private IPasswordValidator validator = new MockPasswordValidator();
+
         [Test]
-        public void Test()
+        public void IsABCInvalid()
         {
             var password = "abc";
-            var sut = this.GetValidator();
-            var isPasswordValid = sut.IsPasswordValid(password);
+            var isPasswordValid = this.validator.IsPasswordValid(password);
             Assert.IsFalse(isPasswordValid);
-        }
-
-        private IPasswordValidator GetValidator()
-        {
-            return new MockPasswordValidator();
         }
     }
 }
