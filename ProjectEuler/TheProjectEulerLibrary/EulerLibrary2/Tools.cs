@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EulerLibrary2
 {
@@ -10,19 +6,27 @@ namespace EulerLibrary2
     {
         public static bool IsPrimeNumber(int number)
         {
-            if (number == 1)
+            var isPrimeNumber = true;
+            if (number <= 1)
             {
-                return false; // because definition
+                isPrimeNumber = false; // because definition
             }
 
-            for (var i = 2; i < number; i++)
+            var x = (int)Math.Sqrt(number);
+            for (var i = 2; i <= x; i++)
             {
                 if (number % i == 0)
                 {
-                    return false;
+                    isPrimeNumber = false;
                 }
             }
 
+            return isPrimeNumber;
+        }
+
+
+        public static bool IsNotPrimeNumber(int value)
+        {
             return true;
         }
     }
