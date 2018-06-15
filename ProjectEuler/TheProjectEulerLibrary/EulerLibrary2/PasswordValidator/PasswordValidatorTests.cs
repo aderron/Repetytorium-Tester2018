@@ -28,14 +28,14 @@ namespace EulerLibrary2.PasswordValidator
 
 
         [TestCase("ABkCabcaoc123kl!",  TestName = "Test true")]
-        [TestCase("ABkCabcaoc123kl!dfdfdfdksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksk", TestName = "Test true 100 L")]
+        [TestCase("ABkCabcaoc123kl!dfdfdfdkskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskABkCabcaoc123kl!dfdfdfdksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsds", TestName = "Test true 255 L")]
         [TestCase("!@!@!@!@!@12WEWEWEWEWEWdsad", TestName = "Test true 10 * (s+u) + 2 d")]
         [TestCase("!@!@!@!@!@121212121212WEWEWEWEWEWdsad", TestName = "Test true 10 * (d+s+u)")]
         public void PasswordTestValidTrue(string password)
         {
             Assert.IsTrue(this.validator.IsPasswordValid(password));
         }
-
+        [TestCase("ABkCabcaoc123kl!dfdfdfdkskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskABkCabcaoc123kl!dfdfdfdksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsd", TestName = "ftest true 256 L")]
         [TestCase("ABkCabcoc123kl", TestName = "fTest short (14)")]
         [TestCase("WE@sdsdk@2sdsdsd", TestName = "fTest false")]
         [TestCase("!@!@!@!@!@12WEWEWEWEWEWdsadd", TestName = "fTest same char")]
@@ -47,7 +47,7 @@ namespace EulerLibrary2.PasswordValidator
         [TestCase("ABkCabcaoc123kl2", TestName = "fTest no special")]
         public void PasswordTestValidFalse(string password)
         {
-            Assert.IsFalse(this.validator.IsPasswordValid(password));
+            Assert.IsTrue(!this.validator.IsPasswordValid(password));
         }
     }
 }
