@@ -27,111 +27,131 @@ namespace EulerLibrary2.PasswordValidator
             Assert.IsTrue(isPasswordValid);
         }
         [Test]
-        public void MinimumChar()
+        public void PassFine()
         {
-            var password = "FDdfghd12fvfg%"; //14
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void OneDig()
-        {
-            var password = "DFdfghdtyfhb7v&"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void OneUpp()
-        {
-            var password = "Gdfdftybvcdf25%"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void NoSpec()
-        {
-            var password = "ASfyrbnsindka49"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void SameChar()
-        {
-            var password = "DGfgtfvbhtOO12%"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void NoNormal()
-        {
-            var password = "FGTRDV123456*&$"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void OnlyNorm()
-        {
-            var password = "qwertyuiopasdfg"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void OnlyDig()
-        {
-            var password = "123456776543210"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void OnlyUpp()
-        {
-            var password = "DFGHTFRVBGHTRDV"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void OnlySpec()
-        {
-            var password = "!@#$%^&*()(*&^%"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void NoDig()
-        {
-            var password = "DFGfgderthgbvf%"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
+            var password = "ASDasdrt565656ynbv23!@";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "ok";
+            Assert.AreEqual(expectedMessage, exception.Message);
         }
         [Test]
         public void NoUpp()
         {
-            var password = "hfbdgrnsbjr12%$"; //15
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
+            var password = "hfbdgrnsbjr12%$";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "NoUp";
+            Assert.AreEqual(expectedMessage, exception.Message);
         }
         [Test]
-        public void Dig257()
+        public void MinChar()
         {
-            var password = "#ZoZxE4aXFhASC5k33MMRUPeYfhjntYWWkle7HdIpnTvNYSDIImThChvKr50pRRpXJX0yXJdcT1Jwc6IQiEhuIGFeXhFtd4BFCV5b83cCfJpuB0rxBt2hAgerPcbJfnUoBEktIyoKW8A8URqs2J8tzraFpgvMtCkJTZw2pH1PID67vk8YDjQmY0NODMqfOYZ5AD9ZjOahmUfmc97wlNQZ837j5OE7hcpQ8XpM0VrP0NTnITL4v7FrCbI7bJEeEUYB"; //257
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-        }
-        [Test]
-        public void Fine()
-        {
-            var password = "ASDasdrtynbv23!@"; //257
-            var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
-
-        [Test]
-        public void IsExceptionHandling()
-        {
-            var password = "A";
+            var password = "FDdfghd12fvfg%";
             var exception = Assert.Throws<ApplicationException>(
                 () => this.validator.IsPasswordValid(password));
             var expectedMessage = "x";
             Assert.AreEqual(expectedMessage, exception.Message);
         }
+        [Test]
+        public void OneDig()
+        {
+            var password = "DFdfghdtyfhb7v&";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "Onedig";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void OneUpp()
+        {
+            var password = "Gdfdftybvcdf25%";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "Oneup";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void NoSpec()
+        {
+            var password = "ASfyrbnsindka49";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "nospec";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void SameChar()
+        {
+            var password = "DGfgtfvbht8O1209";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "samechar";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void NoNormal()
+        {
+            var password = "FGTRDV123456*&$";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "nonorm";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void OnlyNorm()
+        {
+            var password = "qwertyuiopasdfg";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "onlynorm";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void OnlyDig()
+        {
+            var password = "123456776543210";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "onlydig";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void OnlyUp()
+        {
+            var password = "AS$$dsfgfdghfgG234;.;";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "onlynorm";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void OnlySpec()
+        {
+            var password = "";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "onlynorm";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void NoDig()
+        {
+            var password = "&mul9h8j6j2jnug9uy1ikvb86ljyewgrxi0gteup4kdbqozrqi49pujmfjkc87d8n0derhrbtruj03x4g43d365nr8vbhvnm2i0oxg8w0v45m6l9hlyk0d25k0uk0n9zktpvmzb7x260fg6oame4snj07ulfj3vk85p4izdagwvi1ruqh5731ia0x5yq130q9k2kn3az0xijqsirs9ekiojizwmiosv6zwxzch32vgu0kgren6xi740nkydosa8";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "onlynorm";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+        [Test]
+        public void NoUp()
+        {
+            var password = "DFG345#%$^ghghghfrtyu";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "onlynorm";
+            Assert.AreEqual(expectedMessage, exception.Message);
+        }
+
     }
 }
