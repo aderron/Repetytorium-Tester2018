@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using PasswordValidator;
+using System;
 
 namespace EulerLibrary2.PasswordValidator
 {
@@ -25,6 +26,7 @@ namespace EulerLibrary2.PasswordValidator
             var isPasswordValid = this.validator.IsPasswordValid(password);
             Assert.IsTrue(isPasswordValid);
         }
+<<<<<<< HEAD
         [Test]
         public void MinimumChar()
         {
@@ -122,6 +124,17 @@ namespace EulerLibrary2.PasswordValidator
             var password = "ASDasdrtynbv23!@"; //257
             var isPasswordValid = this.validator.IsPasswordValid(password);
             Assert.IsFalse(isPasswordValid);
+=======
+
+        [Test]
+        public void IsExceptionHandling()
+        {
+            var password = "A";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "x";
+            Assert.AreEqual(expectedMessage, exception.Message);
+>>>>>>> master
         }
     }
 }
