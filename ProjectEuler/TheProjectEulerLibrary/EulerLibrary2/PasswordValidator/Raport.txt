@@ -1,0 +1,35 @@
+﻿1.Steps to reproduce:
+	Validate passport: "90KLKLKLKLKLKLKLKLKLKLKLKLKLKLKLKL*PL"
+2. Expected result:
+	True
+3. Actual result:
+	Aplication Expected: TOO MANY UPPERCASE LETTERS, PLEASE HAVE SOME BACK
+	
+.........................................................................
+
+1.Steps to reproduce:
+	Validate passport: 
+	";PL78mnmnmnmnmnmnm"
+	"~PL78mnmnmnmnmnmnm"
+	"|PL78mnmnmnmnmnmnm"
+	":PL78mnmnmnmnmnmnm"
+	"'PL78mnmnmnmnmnmnm"
+	",PL78mnmnmnmnmnmnm"
+	".PL78mnmnmnmnmnmnm"
+	"<PL78mnmnmnmnmnmnm"
+	">PL78mnmnmnmnmnmnm"
+	"?PL78mnmnmnmnmnmnm"
+	"/PL78mnmnmnmnmnmnm"
+2. Expected result:
+	True
+3. Actual result:
+	Aplication Expected: Special characters are missing
+
+.........................................................................
+
+1.Steps to reproduce:
+	Validate passport: "97*KLKLKLOPOPOPOPOPOO"
+2. Expected result:
+	True
+3. Actual result:
+	Aplication Expected: Password length (21) not supported!
