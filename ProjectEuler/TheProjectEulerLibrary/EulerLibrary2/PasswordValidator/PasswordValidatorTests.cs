@@ -28,12 +28,13 @@ namespace EulerLibrary2.PasswordValidator
         }
 
         [Test]
-        public void IsExceptionHandling()
+        public void IsPasswordValid_OneCharacterPassword_ThrowsTooShort()
         {
-            var password = "A";
+            var tooShortPassword = "A";
+            var expectedMessage = "Password is too short. It needs to be at least 15 characters long";
+            
             var exception = Assert.Throws<ApplicationException>(
-                () => this.validator.IsPasswordValid(password));
-            var expectedMessage = "x";
+                () => this.validator.IsPasswordValid(tooShortPassword));
             Assert.AreEqual(expectedMessage, exception.Message);
         }
     }
