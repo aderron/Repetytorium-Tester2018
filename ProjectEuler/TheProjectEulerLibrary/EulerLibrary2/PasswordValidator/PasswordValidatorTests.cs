@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using PasswordValidator;
+using System;
 
 namespace EulerLibrary2.PasswordValidator
 {
@@ -26,6 +27,7 @@ namespace EulerLibrary2.PasswordValidator
             Assert.IsTrue(isPasswordValid);
         }
 
+<<<<<<< HEAD
 
         [TestCase("ABkCabcaoc123kl!",  TestName = "Test true")]
         [TestCase("ABkCabcaoc123kl!dfdfdfdkskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskskABkCabcaoc123kl!dfdfdfdksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksksdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsds", TestName = "Test true 255 L")]
@@ -48,6 +50,16 @@ namespace EulerLibrary2.PasswordValidator
         public void PasswordTestValidFalse(string password)
         {
             Assert.IsTrue(!this.validator.IsPasswordValid(password));
+=======
+        [Test]
+        public void IsExceptionHandling()
+        {
+            var password = "A";
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(password));
+            var expectedMessage = "x";
+            Assert.AreEqual(expectedMessage, exception.Message);
+>>>>>>> master
         }
     }
 }
