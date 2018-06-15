@@ -1,0 +1,6 @@
+﻿1. Steps to reproduce:
+	Validate password: ABABABABAABABABABABABABABABABABABABcabcfabcabcd26$%
+2. Expected result:
+	Password is valid
+3. Actual result:
+	TOO MANY UPPERCASE LETTERS, PLEASE HAVE SOME BACK

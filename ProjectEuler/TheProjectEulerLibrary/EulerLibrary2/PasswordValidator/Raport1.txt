@@ -1,0 +1,6 @@
+﻿1. Steps to reproduce:
+	Validate password: abcabcabcabcd#@!12
+2. Expected result:
+	Password require at least 2 upper case characters, but got 0
+3. Actual result:
+	Application Expected:
