@@ -29,5 +29,21 @@ namespace EulerLibrary2
         {
             return true;
         }
+
+        public static bool IsPalindrome(int number)
+        {
+            var charArray = number.ToString().ToCharArray();
+
+            for (var i = 0; i < charArray.Length; i++)
+            {
+                var isEqual = charArray[i] == charArray[charArray.Length - i - 1];
+                if (!isEqual)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
