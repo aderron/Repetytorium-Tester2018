@@ -1,0 +1,36 @@
+﻿<ProjectConfiguration>
+  <Settings>
+    <IgnoredTests>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime -1 is not a prime</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime 0 is a prime</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime 1 is not a prime</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime 15 is not a prime</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime 2 is a prime</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime 3 is a prime</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime 51 is not a prime</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime 97 is not a prime</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime 99 is not a prime</TestName>
+      </NamedTestSelector>
+      <NamedTestSelector>
+        <TestName>EulerLibrary2.ToolsTests.prime 99990041 is not a prime</TestName>
+      </NamedTestSelector>
+    </IgnoredTests>
+  </Settings>
+</ProjectConfiguration>
