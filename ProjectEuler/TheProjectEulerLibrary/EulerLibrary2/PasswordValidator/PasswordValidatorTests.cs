@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PasswordValidator;
 
 namespace EulerLibrary2.PasswordValidator
 {
@@ -20,14 +16,14 @@ namespace EulerLibrary2.PasswordValidator
          * 
          * */
 
-        private IPasswordValidator validator = new MockPasswordValidator();
+        private IPasswordValidator validator = new ExternalPasswordValidator();
 
         [Test]
         public void IsABCInvalid()
         {
-            var password = "abc";
+            var password = "ABCabcabc123#@!";
             var isPasswordValid = this.validator.IsPasswordValid(password);
-            Assert.IsFalse(isPasswordValid);
+            Assert.IsTrue(isPasswordValid);
         }
         [Test]
         public void MinimumChar()
