@@ -4,6 +4,9 @@ Misc//
 
 git status - status
 
+history -c - clear commands history
+
+clear - clear console
 
 
 Files control//
