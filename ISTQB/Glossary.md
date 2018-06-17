@@ -79,23 +79,23 @@
 
 *Confirmation testing - 
 
-*Contactual acceptance testing
+*Contactual acceptance testing -
 
-*Functional testing
+*Functional testing -
 
-*Impact analysis
+*Impact analysis -
 
-*Integration testing
+*Integration testing -
 
-*Maintance testing
+*Maintance testing -
 
-*Non-functional testing
+*Non-functional testing -
 
-*Operational acceptance testing
+*Operational acceptance testing -
 
 *Regression testing - testowanie umożliwiające sprawdzenie jak wpłynęło naprawienie błędów w oprogramowaniu na już działające komponenty
 
-*Regulatory acceptance testing
+*Regulatory acceptance testing -
 
 *Sequential development model
 
