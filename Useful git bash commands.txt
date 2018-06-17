@@ -1,0 +1,18 @@
+git branch --set-upstream-to=origin/master DerAd - access your branch
+
+git clone - tworzenie lokalnej kopii (klona) repozytorum dostêpnego pod adresem w aktualnym folderze (.)
+
+git add . - stages new and modified, without deleted
+
+git commit -m "pro" - commit message
+
+git pull - œci¹gniêcie zmian obecnego brancha z serwera (zdalnego repozytorium)
+
+git push - 'wypchniêcie' zmian z lokalnego repozytorium na zdalne
+
+git status - pokazuje na jakim branchu jesteœmy, ile plików jest zmodyfikowanych, ile plików jest dodanych
+
+
+
+
+
