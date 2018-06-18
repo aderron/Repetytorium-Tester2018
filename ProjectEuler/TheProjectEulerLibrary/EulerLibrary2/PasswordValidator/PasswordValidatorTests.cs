@@ -71,7 +71,7 @@ namespace EulerLibrary2.PasswordValidator
         [Test]
         public void IsPasswordValid_OneCharacterPassword_notBig()
         {
-            var notEnoughDigits = "ABdfg74!mkb";
+            var notEnoughDigits = "ABdfg7!mkbdgrynswdkl";
            
             var exception = Assert.Throws<ApplicationException>(
                 () => this.validator.IsPasswordValid(notEnoughDigits));
