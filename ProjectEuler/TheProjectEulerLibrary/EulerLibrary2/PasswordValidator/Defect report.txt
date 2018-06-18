@@ -1,101 +1,62 @@
->> ValidCase
+>>>TooManyDigitsPassword<<<
 
-1.Step to reproduce 
-Validate Password: "ABCabcabc123#@!"
-2.Expected result :
-True
-3. Actual result: 
-True
+Step to reproduce:
+	validate password: "ABCabcabc123#@!32131231313132"
 
->>TooShortPassword
+Expected result :
+	True
 
-1.Step to reproduce 
-Validate Password: "ABCabcabc123#@"
-2.Expected result :
-True
-3. Actual result: 
-ApplicationException : Password is too short. It needs to be at least 15 characters long
+Actual result:
+	Database overflow! Too many digits
 
->>MinTwoDigits
+------------------------------------
 
-1.Step to reproduce 
-Validate Password: "ABCabcabc3kad!;"
-2.Expected result :
-True
-3. Actual result: 
-ApplicationException : Password require at least 2 digits, but got 1
+>>>NotSupportedLength21<<<
 
->>DuplicatedCharacters
+Step to reproduce:
+	validate password: "ABCabcabc123#@!123456"
 
-1.Step to reproduce 
-Validate Password: "ABCabcabccac123kad!;;"
-2.Expected result :
-True
-3. Actual result: 
-ApplicationException : Duplicated character: cc
+Expected result :
+	True
 
->>MinTwoUpperCase
+Actual result:
+	Password length (21) not supported!
 
-1.Step to reproduce 
-Validate Password: "Aabcabcac123kad!;"
-2.Expected result :
-True
-3. Actual result: 
-ApplicationException : At least 2 upper case letters needs to be present
+------------------------------------
 
->>NoSpecialChar
+>>>NotSupportedLength30<<<
 
-1.Step to reproduce 
-Validate Password: "ABabcabcac123kad;"
-2.Expected result :
-True
-3. Actual result: 
-ApplicationException : Special characters are missing
+Step to reproduce:
+	validate password: "ABCabcabc123#@!ABCabcabc123#@!"
 
->>TooManyDigitsPassword
+Expected result :
+	True
 
-1.Step to reproduce 
-Validate Password: "ABCabcabcabc123kad!12345632;"
-2.Expected result :
-True
-3. Actual result: 
-ApplicationException : Database overflow! Too many digits
+Actual result:
+	Password length (30) not supported!
 
->>NotSupportedLength21
+------------------------------------
 
-1.Step to reproduce 
-Validate Password: "ABCabcabcabc123kad!12"
-2.Expected result :
-True
-3. Actual result: 
-NotSupportedException : Password length (21) not supported!
+>>>ExceedChar255<<<
 
->>NotSupportedLength30
+Step to reproduce:
+	validate password: "ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!ABCabcabc123#@!"
 
-1.Step to reproduce 
-Validate Password: "ABCabcabcabc123kad!1234563235;"
-2.Expected result :
-True
-3. Actual result: 
-NotSupportedException : Password length (30) not supported!
+Expected result :
+	True
 
->>ExceedChar255
+Actual result:
+	Password can only be 255 characters
 
-1.Step to reproduce 
-Validate Password: "ACabcabcabc123kadACabcabcabc123kad!1234563235bc123kad!1234563235ACabcabcabc123kad!1234563235ACabcabcabc123kad!1234563235ACabcabcabc123kad!1234563235ACabcabcabc123kad!1234563235!1234563ACabcabcabc123kad!1234563235ACabcabcabc123kad!123ad!1234563235!1ad!1234563235!14563235ACabcabcabc123kad!12345632352ad!1234583235!1ad!123453kad!1234563235ACabcabcabc123kad!1234563235ACabcabcabc123kad!1234563235!1234563ACabcabcabc123kad!12345632"
-2.Expected result :
-True
-3. Actual result: 
-ApplicationException : Password can only be 255 characters
+------------------------------------
 
->>TooManyUppercaseLetters
+>>>TooManyUppercaseLetters<<<
 
-1.Step to reproduce 
-Validate Password: "ABCABCABCABCABCABCABCABCABCABCabcabcabc123kad!;"
-2.Expected result :
-True
-3. Actual result: 
-ApplicationException : TOO MANY UPPERCASE LETTERS, PLEASE HAVE SOME BACK
+Step to reproduce:
+	validate password: "ABCABCABCABCABCABCABCABCABCabcabc123#@!"
 
+Expected result :
+	True
 
-
+Actual result:
+	TOO MANY UPPERCASE LETTERS, PLEASE HAVE SOME BACK
