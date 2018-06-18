@@ -5,7 +5,7 @@ using System;
 namespace EulerLibrary2.PasswordValidator
 {
     [TestFixture]
-    class PasswordValidatorTests
+    class KlolikPasswordValidator
     {
         /*
          * 
