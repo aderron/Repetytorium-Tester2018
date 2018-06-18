@@ -24,9 +24,14 @@ namespace EulerLibrary2.Mock
             connectorMock.Verify(m => m.GetContent(remoteAddress), Times.Once); // sprawdza czy metoda została zawołana
             connectorMock.Verify(m => m.UpdateContent(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
             // Verify IEncryption
-            encryptionMock.Verify(m => m.Decrypt(It.IsAny<string>(), key), Times.Once);
-            encryptionMock.Verify(m => m.Encrypt(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+
+            /*encryptionMock.Verify(m => m.Decrypt(It.IsAny<string>(), key), Times.Once);
+            encryptionMock.Verify(m => m.Encrypt(It.IsAny<string>(), It.IsAny<string>()), Times.Never);*/
+
+            encryptionMock.Verify(m=>m.Decrypt(It.IsAny<string>(), key), Times.Once); 
+            encryptionMock.Verify(m=>m.Encrypt(It.IsAny<string>(), key), Times.Never);
         }
+
 
         [Test]
         public void Post_VerifyIfCallsRightMethods()
@@ -42,6 +47,9 @@ namespace EulerLibrary2.Mock
 
             // Act
             sut.Update(remoteAddress, content);
+
+
+
 
             // Assert
             // czy zaszyfujemy
