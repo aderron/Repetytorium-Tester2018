@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using PasswordValidator;
+using System;
 
 namespace EulerLibrary2.PasswordValidator
 {
@@ -24,6 +25,17 @@ namespace EulerLibrary2.PasswordValidator
             var password = "ABCabcabc123#@!";
             var isPasswordValid = this.validator.IsPasswordValid(password);
             Assert.IsTrue(isPasswordValid);
+        }
+
+        [Test]
+        public void IsPasswordValid_OneCharacterPassword_ThrowsTooShort()
+        {
+            var tooShortPassword = "A";
+            var expectedMessage = "Password is too short. It needs to be at least 15 characters long";
+            
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(tooShortPassword));
+            Assert.AreEqual(expectedMessage, exception.Message);
         }
     }
 }
