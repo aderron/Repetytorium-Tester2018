@@ -77,27 +77,27 @@
 
 *Component testing - testy polegające na sprawdzaniu działania danego komponentu
 
-*Confirmation testing - 
+*Confirmation testing - testy mające potwierdzić naprwienie defektu od czasu ostatniego faila
 
-*Contactual acceptance testing -
+*Contactual acceptance testing - 
 
-*Functional testing -
+*Functional testing - testowanie elemntów funkcyjnych takich jak komponenty i funkcjonalności aplikacji
 
-*Impact analysis -
+*Impact analysis - jest to analiza wpływu zmian w oprogramowaniu
 
-*Integration testing -
+*Integration testing - 
 
-*Maintance testing -
+*Maintance testing - testowanie w  fazie utrzymania aplikacji
 
-*Non-functional testing -
+*Non-functional testing - testowanie niefunkcyjnej części oprogramowania, czyli sposobu w jaki system działa
 
 *Operational acceptance testing -
 
 *Regression testing - testowanie umożliwiające sprawdzenie jak wpłynęło naprawienie błędów w oprogramowaniu na już działające komponenty
 
-*Regulatory acceptance testing
+*Regulatory acceptance testing -
 
-*Sequential development model
+*Sequential development model -
 
 *System integration testing
 
