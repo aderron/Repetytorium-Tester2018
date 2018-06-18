@@ -37,9 +37,6 @@
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="PasswordValidator">
-      <HintPath>.\PasswordValidator.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +51,7 @@
     <Compile Include="Inheritance\ShapeTests.cs" />
     <Compile Include="PasswordValidator\IPasswordValidator.cs" />
     <Compile Include="PasswordValidator\MockPasswordValidator.cs" />
+    <Compile Include="PasswordValidator\ExternalPasswordValidator.cs" />
     <Compile Include="PasswordValidator\PasswordValidatorTests.cs" />
     <Compile Include="ProjectEulerLibrary.cs" />
     <Compile Include="ProjectEulerLibraryTests.cs" />
