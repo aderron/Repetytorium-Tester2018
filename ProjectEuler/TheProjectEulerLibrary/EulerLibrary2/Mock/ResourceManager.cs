@@ -9,7 +9,7 @@
     public interface IConnector
     {
         string GetContent(string url);
-        string PostContent(string url, string content);
+        string UpdateContent(string url, string content);
     }
 
     public class ResourceManager {
@@ -30,13 +30,13 @@
         {
             var encryptedContent = this.connector.GetContent(url);
             var content = this.encryption.Decrypt(encryptedContent, this.Key);
-            return encryptedContent;
+            return content;
         }
 
-        public void Push(string adresInternetowy, string content)
+        public void Update(string adresInternetowy, string content)
         {
             var encryptedContent = this.encryption.Encrypt(content, this.Key);
-            this.connector.PostContent(adresInternetowy, content);
+            this.connector.UpdateContent(adresInternetowy, encryptedContent);
         }
     }
 }
