@@ -27,8 +27,8 @@ namespace PasswordValidator
 
         private static bool IsLengthOk(string password)
         {
-            var wrongValidLengths = new[] { 0, 4 };
-            var wrongInvalidLengths = new[] { 21, 30 };
+            var wrongValidLengths = new int[] { 0, 4 };
+            var wrongInvalidLengths = new int[] { 21, 30 };
 
             if (password.Length < 15)
             {
