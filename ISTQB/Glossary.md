@@ -97,7 +97,11 @@
 
 *Regulatory acceptance testing -
 
+<<<<<<< HEAD
 *Sequential development model
+=======
+*Sequential development model -
+>>>>>>> PiotrJMock
 
 *System integration testing
 

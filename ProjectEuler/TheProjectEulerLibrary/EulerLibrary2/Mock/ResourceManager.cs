@@ -9,7 +9,11 @@
     public interface IConnector
     {
         string GetContent(string url);
+<<<<<<< HEAD
         string UpdateContent(string url, string content);
+=======
+        string PostContent(string url, string content);
+>>>>>>> PiotrJMock
     }
 
     public class ResourceManager {
@@ -26,6 +30,7 @@
             this.Key = key;
         }
 
+<<<<<<< HEAD
         public string Get(string url)
         {
             var encryptedContent = this.connector.GetContent(url);
@@ -37,6 +42,19 @@
         {
             var encryptedContent = this.encryption.Encrypt(content, this.Key);
             this.connector.UpdateContent(adresInternetowy, encryptedContent);
+=======
+        public string Get(string name)
+        {
+            var content = this.connector.GetContent(name);
+            var decryptedContent = this.encryption.Decrypt(content, this.Key);
+            return decryptedContent;
+        }
+
+        public void Push(string name, string content)
+        {
+            var encryptedContent = this.encryption.Encrypt(content, this.Key);
+            this.connector.PostContent(name, encryptedContent);
+>>>>>>> PiotrJMock
         }
     }
 }

@@ -12,6 +12,7 @@ namespace EulerLibrary2.Mock
             // Arange
             var connectorMock = new Mock<IConnector>();
             var encryptionMock = new Mock<IEncryption>();
+<<<<<<< HEAD
             var key = "THE_KEY";
             var remoteAddress = "SOME_REMOTE_ADDRESS";
 
@@ -23,6 +24,19 @@ namespace EulerLibrary2.Mock
             // Assert
             connectorMock.Verify(m => m.GetContent(remoteAddress), Times.Once); // sprawdza czy metoda została zawołana
             connectorMock.Verify(m => m.UpdateContent(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+=======
+            var key = "XXX";
+            var resourceName = "RES";
+
+            var x = new ResourceManager(connectorMock.Object, encryptionMock.Object, key);
+
+            // Act
+            x.Get(resourceName);
+
+            // Assert
+            connectorMock.Verify(m => m.GetContent(resourceName), Times.Once); // sprawdza czy metoda została zawołana
+            connectorMock.Verify(m => m.PostContent(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+>>>>>>> PiotrJMock
             // Verify IEncryption
             encryptionMock.Verify(m => m.Decrypt(It.IsAny<string>(), key), Times.Once);
             encryptionMock.Verify(m => m.Encrypt(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
@@ -34,6 +48,7 @@ namespace EulerLibrary2.Mock
             // Arange
             var connectorMock = new Mock<IConnector>();
             var encryptionMock = new Mock<IEncryption>();
+<<<<<<< HEAD
             var key = "THE_KEY";
             var remoteAddress = "SOME_REMOTE_ADDRESS";
             var content = "THE_CONTENT";
@@ -57,10 +72,39 @@ namespace EulerLibrary2.Mock
 
         [Test]
         public void Get_VerifyDecryption()
+=======
+            var key = "XXX";
+            var resourceName = "RES";
+            var content = "Content";
+            var encryptedContent = "Encrypted Content";
+
+            var x = new ResourceManager(connectorMock.Object, encryptionMock.Object, key);
+
+            // Act
+            x.Push(resourceName,content);
+
+            
+
+            // Assert
+            connectorMock.Verify(m => m.GetContent(It.IsAny<string>()), Times.Never); // sprawdza czy metoda została zawołana
+            connectorMock.Verify(m => m.PostContent(resourceName, It.IsAny<string>()), Times.Once);
+            // Verify IEncryption
+            encryptionMock.Verify(m => m.Decrypt(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+            encryptionMock.Verify(m => m.Encrypt(content, key), Times.Once);
+
+
+
+
+        }
+
+        [Test]
+        public void Get_VerifyIfCallsRightMethodsWithRightContent()
+>>>>>>> PiotrJMock
         {
             // Arange
             var connectorMock = new Mock<IConnector>();
             var encryptionMock = new Mock<IEncryption>();
+<<<<<<< HEAD
             var key = "THE_KEY";
             var remoteAddress = "SOME_REMOTE_ADDRESS";
             var encryptedContent = "__ENCRYPTED_CONTENT__";
@@ -73,17 +117,36 @@ namespace EulerLibrary2.Mock
 
             // Act
             var result = sut.Get(remoteAddress);
+=======
+            var key = "XXX";
+            var resourceName = "RES";
+            var encryptedContent = "__ENCRYPTED_CONTENT___";
+            var decryptedContent = "THE_CONTENT";
+
+            connectorMock.Setup(m => m.GetContent(resourceName)).Returns(encryptedContent);
+            encryptionMock.Setup(m => m.Decrypt(encryptedContent, key)).Returns(decryptedContent);
+
+            var x = new ResourceManager(connectorMock.Object, encryptionMock.Object, key);
+
+            // Act
+            var result = x.Get(resourceName);
+>>>>>>> PiotrJMock
 
             // Assert
             Assert.AreEqual(decryptedContent, result);
         }
 
         [Test]
+<<<<<<< HEAD
         public void Post_VeeifyEncryption()
+=======
+        public void Push_VerifyIfCallsRightMethodsWithRightContent()
+>>>>>>> PiotrJMock
         {
             // Arange
             var connectorMock = new Mock<IConnector>();
             var encryptionMock = new Mock<IEncryption>();
+<<<<<<< HEAD
             var key = "THE_KEY";
             var remoteAddress = "SOME_REMOTE_ADDRESS";
             var encryptedContent = "__ENCRYPTED_CONTENT__";
@@ -118,6 +181,23 @@ namespace EulerLibrary2.Mock
         public interface IPrimeTool
         {
             bool IsPrime(int number);
+=======
+            var key = "XXX";
+            var resourceName = "RES";
+            var encryptedContent = "__ENCRYPTED_CONTENT___";
+            var decryptedContent = "THE_CONTENT";
+
+            
+            encryptionMock.Setup(m => m.Encrypt(decryptedContent, key)).Returns(encryptedContent);
+
+            var x = new ResourceManager(connectorMock.Object, encryptionMock.Object, key);
+
+            // Act
+            x.Push(resourceName,decryptedContent);
+
+            // Assert
+            connectorMock.Verify(m => m.PostContent(resourceName, encryptedContent), Times.Once);
+>>>>>>> PiotrJMock
         }
     }
 }
