@@ -26,17 +26,17 @@
             this.Key = key;
         }
 
-        public string Get(string name)
+        public string Get(string url)
         {
-            var content = this.connector.GetContent(name);
-            var decryptedContent = this.encryption.Decrypt(content, this.Key);
-            return decryptedContent;
+            var encryptedContent = this.connector.GetContent(url);
+            var content = this.encryption.Decrypt(encryptedContent, this.Key);
+            return encryptedContent;
         }
 
-        public void Push(string name, string content)
+        public void Push(string adresInternetowy, string content)
         {
             var encryptedContent = this.encryption.Encrypt(content, this.Key);
-            this.connector.PostContent(name, encryptedContent);
+            this.connector.PostContent(adresInternetowy, content);
         }
     }
 }
