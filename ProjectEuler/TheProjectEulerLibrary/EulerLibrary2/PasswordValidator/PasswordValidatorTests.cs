@@ -28,6 +28,7 @@ namespace EulerLibrary2.PasswordValidator
         }
         [Test]
 <<<<<<< HEAD
+<<<<<<< HEAD
         public void PassFine()
         {
             var password = "ASDasdrt565656ynbv23!@";
@@ -157,6 +158,15 @@ namespace EulerLibrary2.PasswordValidator
             var exception = Assert.Throws<ApplicationException>(
                 () => this.validator.IsPasswordValid(password));
             var expectedMessage = "onlynorm";
+=======
+        public void IsPasswordValid_OneCharacterPassword_ThrowsTooShort()
+        {
+            var tooShortPassword = "A";
+            var expectedMessage = "Password is too short. It needs to be at least 15 characters long";
+            
+            var exception = Assert.Throws<ApplicationException>(
+                () => this.validator.IsPasswordValid(tooShortPassword));
+>>>>>>> 80baa79da32a4a4ee5f4b0d450c3664694bce1e8
             Assert.AreEqual(expectedMessage, exception.Message);
         }
 
