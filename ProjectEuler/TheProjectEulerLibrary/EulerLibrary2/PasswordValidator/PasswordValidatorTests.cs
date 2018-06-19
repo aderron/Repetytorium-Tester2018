@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using PasswordValidator;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EulerLibrary2.PasswordValidator
 {
@@ -36,6 +38,27 @@ namespace EulerLibrary2.PasswordValidator
             var exception = Assert.Throws<ApplicationException>(
                 () => this.validator.IsPasswordValid(tooShortPassword));
             Assert.AreEqual(expectedMessage, exception.Message);
+        }
+
+        [Test]
+        public void IsLengthOk_ShortPasswords_ShouldThrowException()
+        {
+            var errors = new List<string>();
+            
+            for (var i = 0; i < 15; i++)
+            {
+                try
+                {
+                    var pass = "".PadRight(i);
+                    ExternalPasswordValidator.IsLengthOk(pass);
+                    errors.Add($"Password should be wrong, but was ok for length {i}");
+                } 
+                catch (Exception ex)
+                {
+                }
+            }
+
+            Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
         }
     }
 }
