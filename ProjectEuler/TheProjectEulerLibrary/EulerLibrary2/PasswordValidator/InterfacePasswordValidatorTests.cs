@@ -51,6 +51,8 @@ namespace EulerLibrary2.PasswordValidator
         [Test]
         public void X2()
         {
+            
+
             var sut = new InterfacePasswordValidator(
                 this.mockLengthValidator.Object,
                 this.mockDigitsValidator.Object,
@@ -58,7 +60,8 @@ namespace EulerLibrary2.PasswordValidator
                 this.implementation,
                 this.mockConsecutiveCharacterValidator.Object);
 
-            Assert.IsFalse(sut.IsPasswordValid("xx"));
+            Assert.Catch(() => sut.IsPasswordValid("xx"));
+            Assert.Throws<ApplicationException>(() => sut.IsPasswordValid("xx"));
         }
     }
 }
