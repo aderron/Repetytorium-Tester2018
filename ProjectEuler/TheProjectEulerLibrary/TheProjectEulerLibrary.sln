@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EulerLibrary2", "EulerLibrary2\EulerLibrary2.csproj", "{13F9AA54-6FDF-4668-9063-FB51D983C38C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testerzy2018_Library", "EulerLibrary2\Testerzy2018_Library.csproj", "{13F9AA54-6FDF-4668-9063-FB51D983C38C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherLibrary", "AnotherLibrary\AnotherLibrary.csproj", "{AD3DC80B-D4C0-4ED8-9E43-1240E75F3164}"
 EndProject

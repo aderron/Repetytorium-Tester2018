@@ -53,9 +53,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EulerLibrary2\EulerLibrary2.csproj">
+    <ProjectReference Include="..\EulerLibrary2\Testerzy2018_Library.csproj">
       <Project>{13F9AA54-6FDF-4668-9063-FB51D983C38C}</Project>
-      <Name>EulerLibrary2</Name>
+      <Name>Testerzy2018_Library</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
