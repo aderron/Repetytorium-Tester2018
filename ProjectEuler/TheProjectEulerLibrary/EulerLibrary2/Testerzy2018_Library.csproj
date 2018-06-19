@@ -64,6 +64,9 @@
     <Compile Include="Inheritance\ShapeTests.cs" />
     <Compile Include="Mock\ResourceManager.cs" />
     <Compile Include="Mock\ResourceManagerTests.cs" />
+    <Compile Include="PasswordValidator\ImplementationOfPasswordValidators.cs" />
+    <Compile Include="PasswordValidator\InterfacePasswordValidator.cs" />
+    <Compile Include="PasswordValidator\InterfacePasswordValidatorTests.cs" />
     <Compile Include="PasswordValidator\IPasswordValidator.cs" />
     <Compile Include="PasswordValidator\MockPasswordValidator.cs" />
     <Compile Include="PasswordValidator\ExternalPasswordValidator.cs" />
