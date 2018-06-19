@@ -34,7 +34,7 @@ namespace EulerLibrary2.PasswordValidator
         {
             var tooShortPassword = "A";
             var expectedMessage = "Password is too short. It needs to be at least 15 characters long";
-            
+
             var exception = Assert.Throws<ApplicationException>(
                 () => this.validator.IsPasswordValid(tooShortPassword));
             Assert.AreEqual(expectedMessage, exception.Message);
@@ -44,7 +44,7 @@ namespace EulerLibrary2.PasswordValidator
         public void IsLengthOk_ShortPasswords_ShouldThrowException()
         {
             var errors = new List<string>();
-            
+
             for (var i = 0; i < 15; i++)
             {
                 try
@@ -52,7 +52,7 @@ namespace EulerLibrary2.PasswordValidator
                     var pass = "".PadRight(i);
                     ExternalPasswordValidator.IsLengthOk(pass);
                     errors.Add($"Password should be wrong, but was ok for length {i}");
-                } 
+                }
                 catch (Exception ex)
                 {
                 }
@@ -61,9 +61,103 @@ namespace EulerLibrary2.PasswordValidator
             Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
         }
 
+
+        [Test]
         public void IsLengthOk_OkPasswords_ShouldReturnOk()
         {
+            var errors = new List<string>();
+
+            for (var i = 15; i < 300; i++)
+            {
+                try
+                {
+                    var pass = "".PadRight(i);
+                    ExternalPasswordValidator.IsLengthOk(pass);
+                    
+                }
+                catch (Exception ex)
+                {
+                    errors.Add($"Password should be wrong, but was ok for length {i}");
+                }
+            }
+
+            Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
+        }
+
+
+        [Test]
+        public void Digits()
+        {
+            var errors = new List<string>();
+
+            for (var i = 2; i < 21; i++)
+            {
+                try
+                {
+                    var pass = i.ToString();
+                    ExternalPasswordValidator.IsDigitsOk(pass);
+                    
+                }
+                catch (Exception ex)
+                {
+                    errors.Add($"Password should be wrong, but was ok for length {i}");
+
+                }
+            }
+
+            Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
+        }
+
+
+
+
+        [Test]
+        public void Some_Digits()
+        {
+            var errors = new List<string>();
+
+            for (var i = 2; i < 20; i++)
+            {
+                try
+                {
+                    var pass = i.ToString();
+                    ExternalPasswordValidator.IsDigitsOk(pass);
+
+                }
+                catch (Exception ex)
+                {
+                    errors.Add($"Password should be wrong, but was ok for length {i}");
+
+                }
+            }
+
+            Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
+        }
+
+
+
+
+        [Test]
+        public void No_Digits()
+        {
+
+                    var pass = "xx";
+                    Assert.Throws<ApplicationException>(()=>ExternalPasswordValidator.IsLengthOk(pass));
 
         }
+
+        [Test]
+        public void AAA_Digits()
+        {
+
+            for (var i =2; i<12; i++)
+            {
+
+
+            }
+        }
+
     }
-}
+    }
+
+
