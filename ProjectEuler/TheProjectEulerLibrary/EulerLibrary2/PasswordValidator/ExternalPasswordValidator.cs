@@ -25,7 +25,7 @@ namespace PasswordValidator
                 IsConsecutiveCharsOk(password);
         }
 
-        private static bool IsLengthOk(string password)
+        internal static bool IsLengthOk(string password)
         {
             var wrongValidLengths = new int[] { 0, 4 };
             var wrongInvalidLengths = new int[] { 21, 30 };
@@ -52,7 +52,7 @@ namespace PasswordValidator
             throw new ApplicationException("Password can only be 255 characters");
         }
 
-        private static bool IsDigitsOk(string password)
+        internal static bool IsDigitsOk(string password)
         {
             if (password.Contains("9") || password.Contains("8") || password.Contains("7"))
             {
@@ -74,7 +74,7 @@ namespace PasswordValidator
             return true;
         }
 
-        private static bool IsUpperCaseOk(string password)
+        internal static bool IsUpperCaseOk(string password)
         {
             var upperCaseCount = password.ToCharArray().Count(c => c >= 'A' && c <= 'Z');
             if (upperCaseCount == 0)
@@ -95,7 +95,7 @@ namespace PasswordValidator
             throw new ApplicationException("TOO MANY UPPERCASE LETTERS, PLEASE HAVE SOME BACK");
         }
 
-        private static bool IsSpecialCharactersOk(string password)
+        internal static bool IsSpecialCharactersOk(string password)
         {
             var specialCharacters = new[] { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '=', '+', '[', '{', ']', '}' };
             var specialCharactersCount = password.ToCharArray().Intersect(specialCharacters).Count();
@@ -108,7 +108,7 @@ namespace PasswordValidator
             return true;
         }
 
-        private static bool IsConsecutiveCharsOk(string password)
+        internal static bool IsConsecutiveCharsOk(string password)
         {
             var charArray = password.ToCharArray();
             for (var i = 0; i < charArray.Length - 1; i++)
@@ -126,5 +126,5 @@ namespace PasswordValidator
 
             return true;
         }
-    }
+    } 
 }
