@@ -142,7 +142,7 @@ namespace EulerLibrary2.PasswordValidator
         {
 
                     var pass = "xx";
-                    Assert.Throws<ApplicationException>(()=>ExternalPasswordValidator.IsLengthOk(pass));
+                    var exception= Assert.Throws<ApplicationException>(()=>ExternalPasswordValidator.IsLengthOk(pass));
 
         }
 
@@ -152,7 +152,8 @@ namespace EulerLibrary2.PasswordValidator
 
             for (var i =2; i<12; i++)
             {
-
+                var stringWithNDigits = string.Join(
+                    "", Enumerable.Range(0, 1).Select(j => 5));
 
             }
         }
