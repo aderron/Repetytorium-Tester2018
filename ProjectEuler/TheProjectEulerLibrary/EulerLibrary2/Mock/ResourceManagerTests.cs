@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ﻿using Moq;
 using NUnit.Framework;
 
@@ -109,7 +109,7 @@ namespace EulerLibrary2.Mock
     }
 }
 
-=======
+/*
 ﻿using Moq;
 using NUnit.Framework;
 
@@ -232,5 +232,5 @@ namespace EulerLibrary2.Mock
             bool IsPrime(int number);
         }
     }
-}
->>>>>>> master
+}  */
+
