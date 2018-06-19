@@ -108,7 +108,6 @@ namespace EulerLibrary2.PasswordValidator
             var pass = "xx";
             var exception = Assert.Throws<ApplicationException>(() => 
                         ExternalPasswordValidator.IsDigitsOk(pass));
-            Assert.AreEqual("", exception.Message);
         }
 
         [Test]

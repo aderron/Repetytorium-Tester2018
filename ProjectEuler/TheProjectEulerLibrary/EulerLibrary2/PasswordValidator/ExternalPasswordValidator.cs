@@ -27,48 +27,26 @@ namespace PasswordValidator
 
         internal static bool IsLengthOk(string password)
         {
-            var wrongValidLengths = new int[] { 0, 4 };
-            var wrongInvalidLengths = new int[] { 21, 30 };
 
             if (password.Length < 15)
             {
-                if (wrongValidLengths.Contains(password.Length))
-                {
-                    return true;
-                }
-
                 throw new ApplicationException($"Password is too short. It needs to be at least 15 characters long");
             }
-            else if (password.Length < 256)
+            else 
             {
-                if (wrongInvalidLengths.Contains(password.Length))
-                {
-                    throw new NotSupportedException($"Password length ({password.Length}) not supported!");
-                }
 
                 return true;
             }
-
-            throw new ApplicationException("Password can only be 255 characters");
         }
 
         internal static bool IsDigitsOk(string password)
         {
-            if (password.Contains("9") || password.Contains("8") || password.Contains("7"))
-            {
-                return true;
-            }
 
             var digitsCount = password.ToCharArray().Where(c => c >= '0' && c <= '9').Count();
 
             if (digitsCount < 2)
             {
                 throw new ApplicationException($"Password require at least 2 digits, but got {digitsCount}");
-            }
-
-            if (digitsCount > 10)
-            {
-                throw new ApplicationException($"Database overflow! Too many digits");
             }
 
             return true;
