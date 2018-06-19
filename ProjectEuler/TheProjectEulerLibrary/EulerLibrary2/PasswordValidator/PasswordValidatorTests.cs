@@ -27,36 +27,11 @@ namespace EulerLibrary2.PasswordValidator
             Assert.IsTrue(isPasswordValid);
         }
         [Test]
-<<<<<<< HEAD
-<<<<<<< HEAD
-        public void PassFine()
-        {
-            var password = "ASDasdrt565656ynbv23!@";
-            var exception = Assert.Throws<ApplicationException>(
-                () => this.validator.IsPasswordValid(password));
-            var expectedMessage = "ok";
-            Assert.AreEqual(expectedMessage, exception.Message);
-        }
-        [Test]
-        public void NoUpp()
-        {
-            var password = "hfbdgrnsbjr12%$";
-            var exception = Assert.Throws<ApplicationException>(
-                () => this.validator.IsPasswordValid(password));
-            var expectedMessage = "NoUp";
-            Assert.AreEqual(expectedMessage, exception.Message);
-        }
-        [Test]
-        public void MinChar()
-        {
-            var password = "FDdfghd12fvfg%";
-=======
         public void IsPasswordValid_OneCharacterPassword_ThrowsTooShort()
         {
             var tooShortPassword = "A";
             var expectedMessage = "Password is too short. It needs to be at least 15 characters long";
             
->>>>>>> 1417e6d1c43a57552a31ca9d8adfc62a468605ab
             var exception = Assert.Throws<ApplicationException>(
                 () => this.validator.IsPasswordValid(tooShortPassword));
             Assert.AreEqual(expectedMessage, exception.Message);
@@ -158,17 +133,6 @@ namespace EulerLibrary2.PasswordValidator
             var exception = Assert.Throws<ApplicationException>(
                 () => this.validator.IsPasswordValid(password));
             var expectedMessage = "onlynorm";
-=======
-        public void IsPasswordValid_OneCharacterPassword_ThrowsTooShort()
-        {
-            var tooShortPassword = "A";
-            var expectedMessage = "Password is too short. It needs to be at least 15 characters long";
-            
-            var exception = Assert.Throws<ApplicationException>(
-                () => this.validator.IsPasswordValid(tooShortPassword));
->>>>>>> 80baa79da32a4a4ee5f4b0d450c3664694bce1e8
-            Assert.AreEqual(expectedMessage, exception.Message);
         }
-
     }
 }
