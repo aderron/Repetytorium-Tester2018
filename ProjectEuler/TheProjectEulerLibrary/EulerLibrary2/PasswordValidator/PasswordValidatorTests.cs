@@ -61,7 +61,6 @@ namespace EulerLibrary2.PasswordValidator
             Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
         }
 
-
         [Test]
         public void IsLengthOk_OkPasswords_ShouldReturnOk()
         {
@@ -71,9 +70,8 @@ namespace EulerLibrary2.PasswordValidator
             {
                 try
                 {
-                    var pass = "".PadRight(i);
+                    var pass = "dfgsdg".PadRight(i);
                     ExternalPasswordValidator.IsLengthOk(pass);
-                    
                 }
                 catch (Exception ex)
                 {
@@ -84,80 +82,56 @@ namespace EulerLibrary2.PasswordValidator
             Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
         }
 
-
         [Test]
-        public void Digits()
+        public void IsDigitsOk_1Digit_ShouldThrowException()
         {
             var errors = new List<string>();
-
-            for (var i = 2; i < 21; i++)
+            for (var i = 0; i < 10; i++)
             {
                 try
                 {
                     var pass = i.ToString();
                     ExternalPasswordValidator.IsDigitsOk(pass);
-                    
+                    errors.Add($"Password should be wrong, but was ok for length {i}");
                 }
                 catch (Exception ex)
                 {
-                    errors.Add($"Password should be wrong, but was ok for length {i}");
-
                 }
             }
 
             Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
         }
 
-
-
+        [Test]
+        public void IsDigitsOk_0Digits_ShouldThrowException()
+        {
+            var pass = "xx";
+            var exception = Assert.Throws<ApplicationException>(() => 
+                        ExternalPasswordValidator.IsDigitsOk(pass));
+        }
 
         [Test]
-        public void Some_Digits()
+        public void IsDigitsOk_20Digits_ShouldBeOk()
         {
             var errors = new List<string>();
-
             for (var i = 2; i < 20; i++)
             {
+                var stringWithNDigits = string.Join(
+                            "",
+                            Enumerable.Range(0, i).Select(j => 5));
+
                 try
                 {
-                    var pass = i.ToString();
-                    ExternalPasswordValidator.IsDigitsOk(pass);
-
+                    ExternalPasswordValidator.IsDigitsOk(stringWithNDigits);
                 }
-                catch (Exception ex)
+                catch
                 {
-                    errors.Add($"Password should be wrong, but was ok for length {i}");
-
+                    errors.Add($"Pass has {i} digits, but was not accepted");
                 }
             }
 
             Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
         }
-
-
-
-
-        [Test]
-        public void No_Digits()
-        {
-
-                    var pass = "xx";
-                    var exception= Assert.Throws<ApplicationException>(()=>ExternalPasswordValidator.IsLengthOk(pass));
-
-        }
-
-        [Test]
-        public void AAA_Digits()
-        {
-
-            for (var i =2; i<12; i++)
-            {
-                var stringWithNDigits = string.Join(
-                    "", Enumerable.Range(0, 1).Select(j => 5));
-
-            }
-        }
-
     }
     }
 
