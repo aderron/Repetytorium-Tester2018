@@ -21,10 +21,11 @@ namespace EulerLibrary2.PasswordValidator
 
         private IPasswordValidator validator = new ExternalPasswordValidator();
 
-        [Test]
-        public void IsABCInvalid()
+        [TestCase("Abc",  TestName = "test1")]
+        
+        public void IsABCInvalid(string password)
         {
-            var password = "ABCabcabc123#@!";
+            
             var isPasswordValid = this.validator.IsPasswordValid(password);
             Assert.IsTrue(isPasswordValid);
         }
@@ -132,5 +133,7 @@ namespace EulerLibrary2.PasswordValidator
 
             Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
         }
+
+
     }
 }

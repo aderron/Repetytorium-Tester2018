@@ -23,6 +23,7 @@ namespace PasswordValidator
                 IsUpperCaseOk(password) &&
                 IsSpecialCharactersOk(password) &&
                 IsConsecutiveCharsOk(password);
+            
         }
 
         internal static bool IsLengthOk(string password)

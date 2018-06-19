@@ -34,28 +34,26 @@ namespace EulerLibrary2.Mock
             // Arange
             var connectorMock = new Mock<IConnector>();
             var encryptionMock = new Mock<IEncryption>();
-<<<<<<< HEAD
+
             var key = "XXX";
             var resourceName = "RES";
             var content = "Content";
             var encryptedContent = "Encrypted Content";
-=======
-            var key = "THE_KEY";
-            var remoteAddress = "SOME_REMOTE_ADDRESS";
-            var content = "THE_CONTENT";
->>>>>>> master
 
-            var sut = new ResourceManager(connectorMock.Object, encryptionMock.Object, key);
+            
+
+
+            var x = new ResourceManager(connectorMock.Object, encryptionMock.Object, key);
 
             // Act
-<<<<<<< HEAD
-            x.Push(resourceName,content);
+
+            x.Update(resourceName,content);
 
             
 
             // Assert
             connectorMock.Verify(m => m.GetContent(It.IsAny<string>()), Times.Never); // sprawdza czy metoda została zawołana
-            connectorMock.Verify(m => m.PostContent(resourceName, It.IsAny<string>()), Times.Once);
+            connectorMock.Verify(m => m.UpdateContent(resourceName, It.IsAny<string>()), Times.Once);
             // Verify IEncryption
             encryptionMock.Verify(m => m.Decrypt(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
             encryptionMock.Verify(m => m.Encrypt(content, key), Times.Once);
@@ -104,19 +102,15 @@ namespace EulerLibrary2.Mock
 
             var x = new ResourceManager(connectorMock.Object, encryptionMock.Object, key);
 
-            // Act
-            x.Push(resourceName,decryptedContent);
+            
 
-            // Assert
-            connectorMock.Verify(m => m.PostContent(resourceName, encryptedContent), Times.Once);
-=======
-            sut.Update(remoteAddress, content);
+            x.Update(resourceName, decryptedContent);
 
             // Assert
             // czy zaszyfujemy
-            encryptionMock.Verify(m => m.Encrypt(content, key), Times.Once);
+            encryptionMock.Verify(m => m.Encrypt(decryptedContent, key), Times.Once);
             // czy wyślemy
-            connectorMock.Verify(m => m.UpdateContent(remoteAddress, It.IsAny<string>()), Times.Once);
+            connectorMock.Verify(m => m.UpdateContent(resourceName, It.IsAny<string>()), Times.Once);
             // NIE odbieramy
             connectorMock.Verify(m => m.GetContent(It.IsAny<string>()), Times.Never);
             // nie rozszyfrowujemy
@@ -187,7 +181,7 @@ namespace EulerLibrary2.Mock
         public interface IPrimeTool
         {
             bool IsPrime(int number);
->>>>>>> master
+
         }
     }
 }
