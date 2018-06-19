@@ -60,5 +60,10 @@ namespace EulerLibrary2.PasswordValidator
 
             Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
         }
+
+        public void IsLengthOk_OkPasswords_ShouldReturnOk()
+        {
+
+        }
     }
 }
