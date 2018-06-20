@@ -1,0 +1,6 @@
+1.Step to reproduce 
+Validate Password: "ABdfg7@mkbgjhjalp"
+2.Expected Result :
+true
+3. Actual result: 
+Expected: <System.ApplicationException>

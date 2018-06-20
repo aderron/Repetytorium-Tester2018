@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OperatorsTest.cs" />
     <Compile Include="Inheritance\Shape.cs" />
     <Compile Include="Inheritance\ShapeTests.cs" />
     <Compile Include="Mock\ResourceManager.cs" />
@@ -70,7 +71,7 @@
     <Compile Include="PasswordValidator\IPasswordValidator.cs" />
     <Compile Include="PasswordValidator\MockPasswordValidator.cs" />
     <Compile Include="PasswordValidator\ExternalPasswordValidator.cs" />
-    <Compile Include="PasswordValidator\PasswordValidatorTests.cs" />
+    <Compile Include="PasswordValidator\KlolikPasswordValidator.cs" />
     <Compile Include="ProjectEulerLibrary.cs" />
     <Compile Include="ProjectEulerLibraryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

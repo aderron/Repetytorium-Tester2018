@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Przedszkolanka", "Przedszkolanka\Przedszkolanka.csproj", "{D5D54006-67F8-4821-A568-7B48863C64E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZadIsPrime", "ZadIsPrime\ZadIsPrime.csproj", "{4A7E4E38-8C69-4C6F-9907-CAB8BA438FC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZadFCTRL3", "ZadFCTRL3\ZadFCTRL3.csproj", "{CA1CECDF-BF64-46A0-A806-D9ADF19F152A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D5D54006-67F8-4821-A568-7B48863C64E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5D54006-67F8-4821-A568-7B48863C64E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5D54006-67F8-4821-A568-7B48863C64E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A7E4E38-8C69-4C6F-9907-CAB8BA438FC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A7E4E38-8C69-4C6F-9907-CAB8BA438FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A7E4E38-8C69-4C6F-9907-CAB8BA438FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A7E4E38-8C69-4C6F-9907-CAB8BA438FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA1CECDF-BF64-46A0-A806-D9ADF19F152A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1CECDF-BF64-46A0-A806-D9ADF19F152A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1CECDF-BF64-46A0-A806-D9ADF19F152A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1CECDF-BF64-46A0-A806-D9ADF19F152A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
