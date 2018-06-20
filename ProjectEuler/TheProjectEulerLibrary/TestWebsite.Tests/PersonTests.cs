@@ -10,7 +10,7 @@ namespace TestWebsite.Tests
         [Test]
         public void X()
         {
-            var x = new Person(name: "Piotr", age: 33);
+            var x = new Person("", "Piotr", 33);
             var props = x.GetType().GetProperties();
         }
     }
