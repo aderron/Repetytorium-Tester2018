@@ -1,0 +1,39 @@
+1.odczytujesz zasob
+2.sprawdzam czy metoda jest zgodna ze schematem
+
+
+
+Dodawanie
+1.pobieramy liste osob (Getlist)
+2.Generujemy nowa osobe ktorej nie ma na liscie
+3.Wysy³amy obiekt nowej osoby na /people/Post (metoda  POST, application/json)
+4.Pobieramy liste osob ponownie i weryfikujemy czy nasza osoba jest na liscie
+
+
+przypadek uzycia (negatywny): generujemy dana osobe ktora nie ma wieku(0)
+wysylamy to end point 
+oczekujemy 400 bad request
+
+dodanie osoby ktora istnieje na liscie
+:pobieramy liste osob
+:dodajemy nowa osobe z listy (losowo) 
+:oczekujemy bledu (400)
+
+
+przypadek pozytywny
+
+Usuwanie
+1.sprawdzamy czy ten element juz jest
+2.usuwamy 
+3.Sprawdzamy czy usuniety
+
+__________________________________________________________
+
+
+
+1. pozytywny przypadek uzycia:
+
+
+
+
+http://192.168.1.137/people/list
