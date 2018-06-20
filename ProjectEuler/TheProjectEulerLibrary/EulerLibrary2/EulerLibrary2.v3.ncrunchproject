@@ -1,3 +1,16 @@
 ﻿<ProjectConfiguration>
+<<<<<<< HEAD
   <Settings />
+=======
+  <Settings>
+    <IgnoredTests>
+      <FixtureTestSelector>
+        <FixtureName>EulerLibrary2.ToolsTests</FixtureName>
+      </FixtureTestSelector>
+      <FixtureTestSelector>
+        <FixtureName>EulerLibrary2.Inheritance.ShapeTests</FixtureName>
+      </FixtureTestSelector>
+    </IgnoredTests>
+  </Settings>
+>>>>>>> 64738a9f29f903e29fe2e072bbb6252a8d7dfb4c
 </ProjectConfiguration>

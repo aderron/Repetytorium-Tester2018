@@ -15,4 +15,28 @@ for (var i = 2; i < 20; i++)
 // 555
 // 5555
 ...
-// 55555555555555555555
+// 55555555555555555555  (20)
+
+----------------------
+
+To ozancza, że ktoś nie zresolvovał conflictu poprawnie!
+
+>>>>>>>>>>>>
+
+<<<<<<<<<<<<
+
+
+----------------------
+
+Assert.IsTrue(expr); == Assert.AreEqual(true, expr)
+Assert.IsFalse(expr);
+Assert.AreEqual(2, 3);  // Nie są
+Assert.AreEqual("ALAMA", "KOTA") // też nie są
+Assert.AreEqual(1.00000001, 1.0000003, 0.000000000000000005); // false
+
+Assert.Catch(() => sut.IsPasswordValid("xx"));
+Assert.Throws<ApplicationException>(() => sut.IsPasswordValid("xx"));  // Zadziała bo rzucamy ApplicationException
+Assert.Throws<Exception>(() => sut.IsPasswordValid("xx"));  // Nie zadziała bo rzucamy ApplicationException
+
+async await - funkcje asynchroniczne w C#
+
