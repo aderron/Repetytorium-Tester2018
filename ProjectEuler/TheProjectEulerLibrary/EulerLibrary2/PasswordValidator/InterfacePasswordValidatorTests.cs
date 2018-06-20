@@ -95,12 +95,10 @@ namespace EulerLibrary2.PasswordValidator
                 this.mockSpecialCharacterValidator.Object,
                 this.mockConsecutiveCharacterValidator.Object);
 
-<<<<<<< HEAD
             Assert.IsTrue(sut.IsPasswordValid("77"));
-=======
+
             Assert.Catch(() => sut.IsPasswordValid("xx"));
             Assert.Throws<ApplicationException>(() => sut.IsPasswordValid("xx"));
->>>>>>> 64738a9f29f903e29fe2e072bbb6252a8d7dfb4c
         }
         [Test]
         public void Y5()
