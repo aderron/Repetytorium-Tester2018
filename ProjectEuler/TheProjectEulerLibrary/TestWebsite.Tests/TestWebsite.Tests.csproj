@@ -92,6 +92,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="Model\PeselTests.cs" />
+>>>>>>> 297a6954ca8393ef036a6fb7db76f88a9381e235
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
