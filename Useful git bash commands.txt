@@ -1,5 +1,6 @@
 Misc//
 
+pwd - show current file path
 
 git status - status
 
@@ -17,6 +18,8 @@ git clone - create local copy from remote repo
 
 git pull - pulling change from remote branch
 
+git stash - stashing files to finish them later
+
 git add . - stages new and modified, without deleted
 
 git push - push changes from local to remote
@@ -24,7 +27,6 @@ git push - push changes from local to remote
 git branch --set-upstream-to=origin/master DerAd - access your branch
 
 git push -f origin DerAd - force push
-
 
 
 
