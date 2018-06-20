@@ -1,78 +1,117 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+using System.Data.Linq;
 using System.Web.Http;
+using TestWebsite.Models;
+using TestWebsite.Repository;
 
 namespace TestWebsite.Controllers
 {
-    [RoutePrefix("people")]
+    // https://pesel.cstudios.pl/O-generatorze/Generator-On-Line
+    // http://imiona.nazwiska-polskie.pl/zenskie
+
+    [RoutePrefix("People")]
     public class PeopleController : ApiController
     {
-        private static List<Person> People = new List<Person>()
+        private static readonly IRepository<Pesel, Person> repository;
+
+        static PeopleController()
         {
-            new Person("213123213", "Piotr", age:23),
-            new Person("213123214", "Paulina", age:21),
-            new Person("213123215", "Ania", age:21),
-            new Person("213123216", "Xavery", age:55)
-        };
+            repository = new PeselRepository();
+            var people = new List<Person>
+            {
+                new Person(new Pesel("88031469364"), "Jan", "Kowalski", "Warszawa", "Prezydent Miasta Warszawa"),
+                new Person(new Pesel("88031443355"), "Krzysztof", "Nowak", "Gdańsk", "Prezydent Miasta Gdańska"),
+                new Person(new Pesel("69120677132"), "Stanisław", "Nejgebauer", "Cęstochowa", "Prezydent Miasta Cęstochowa"),
+                new Person(new Pesel("98071652583"), "Andrzej", "Chołast", "Wrocław", "Prezydent Miasta Wrocław"),
+                new Person(new Pesel("84110852656"), "Józef", "Szafoni", "Katowice", "Prezydent Miasta Katowice"),
+                new Person(new Pesel("45100954549"), "Maria", "Szocik", "Poznań", "Prezydent Miasta Poznań"),
+                new Person(new Pesel("61071972713"), "Krystyna", "Spodymek", "Bełchatów", "Prezydent Miasta Bełchatów"),
+                new Person(new Pesel("70030828136"), "Anna", "Korpecki", "Szczecin", "Prezydent Miasta Szczecin"),
+                new Person(new Pesel("70061089537"), "Barbara", "Zgłobica", "Białystok", "Prezydent Miasta Białystok"),
+                new Person(new Pesel("55050253137"), "Teresa", "Piotrowski", "Chorzów", "Prezydent Miasta Chorzów")
+            };
+
+            foreach (var person in people)
+            {
+                repository.Add(person);
+            }
+        }
 
         [HttpGet]
-        [Route("GetList")]
-        public IEnumerable<string> GetList()
+        [Route("List")]
+        public IEnumerable<Pesel> List()
         {
-            return People.Select(p => p.Pesel);
+            return repository.List();
         }
 
         [HttpPost]
-        [Route("Post")]
-        public IHttpActionResult Post(Person person)
+        [Route("Create")]
+        public IHttpActionResult Create(Person person)
         {
             if (person == null)
             {
-                return this.BadRequest();
+                return BadRequest();
             }
 
-            if (People.Any(p => p.Pesel == person.Pesel))
+            try
             {
-                return this.BadRequest($"Person with pesel {person.Pesel} already exists");
+                repository.Add(person);
+                return Created($"/api/People/Read/{person.Pesel}", person);
             }
-
-            if (person.IsValid())
+            catch (DuplicateKeyException e)
             {
-                People.Add(person);
-                return this.Ok();
+                return Conflict();
             }
-
-            return this.BadRequest();
-
         }
 
         [HttpGet]
-        [Route("GetByPesel/{pesel}")]
-        public Person GetByPesel(string pesel)
+        [Route("Read/{pesel}")]
+        public IHttpActionResult Read(string pesel)
         {
-            return People.SingleOrDefault(p => p.Pesel == pesel);
+            if (pesel == null)
+            {
+                return BadRequest();
+            }
+
+            try
+            {
+                var id = new Pesel(pesel); 
+                return Ok(repository.Get(id));
+            }
+            catch (KeyNotFoundException e)
+            {
+                return NotFound();
+            }
+            catch (ApplicationException e)
+            {
+                return this.BadRequest(e.Message);
+            }
         }
 
         [HttpDelete]
-        [Route("Delete")]
+        [Route("Delete/{pesel}")]
         public IHttpActionResult Delete(string pesel)
         {
-            if (string.IsNullOrWhiteSpace(pesel))
+            if (pesel == null)
             {
-                return this.BadRequest();
+                return BadRequest();
             }
 
-            var personToDelete = People.SingleOrDefault(p => p.Pesel == pesel);
-            if (personToDelete != null)
+            try
             {
-                People.Remove(personToDelete);
-                return this.Ok();
+                var id = new Pesel(pesel);
+                repository.Delete(id);
+                return Ok();
             }
-
-            return this.NotFound();
+            catch (KeyNotFoundException e)
+            {
+                return NotFound();
+            }
+            catch (ApplicationException e)
+            {
+                return this.BadRequest(e.Message);
+            }
         }
 
         [HttpPost]
@@ -81,54 +120,18 @@ namespace TestWebsite.Controllers
         {
             if (person == null)
             {
-                return this.BadRequest();
+                return BadRequest();
             }
 
-            var personToUpdate = People.SingleOrDefault(p => p.Pesel == person.Pesel);
-            if (personToUpdate != null)
+            try
             {
-                People.Remove(personToUpdate);
-                People.Add(person);
-                return this.Ok();
+                repository.Update(person);
+                return Ok();
             }
-
-            return this.NotFound();
-        }
-    }
-
-    public class Person
-    {
-        public Person(string pesel, string name, int age)
-        {
-            this.Name = name;
-            this.Age = age;
-            Pesel = pesel;
-        }
-
-        public string Pesel { get; }
-
-        public string Name { get; }
-
-        public int Age { get; }
-
-        internal bool IsValid()
-        {
-            return this.Age > 0 && !string.IsNullOrEmpty(this.Name) && !string.IsNullOrEmpty(this.Pesel);
-        }
-    }
-
-    public class Pesel
-    {
-        public string Value;
-
-        public Pesel(string value)
-        {
-            if (value.Length != 11)
+            catch (KeyNotFoundException e)
             {
-                throw new ApplicationException($"Invalid pesel {value}");
+                return NotFound();
             }
-
-            this.Value = value;
         }
     }
 }
