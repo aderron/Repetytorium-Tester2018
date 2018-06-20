@@ -36,7 +36,7 @@ namespace EulerLibrary2.PasswordValidator
         }
 
         [Test]
-        public void X()
+        public void Y()
         {
             var sut = new InterfacePasswordValidator(
                 this.mockLengthValidator.Object,
@@ -45,11 +45,10 @@ namespace EulerLibrary2.PasswordValidator
                 this.mockSpecialCharacterValidator.Object,
                 this.mockConsecutiveCharacterValidator.Object);
 
-            Assert.IsFalse(sut.IsPasswordValid("xx"));
+            Assert.IsTrue(sut.IsPasswordValid("MakumbaSka123$%^"));
         }
-
         [Test]
-        public void X2()
+        public void Y1()
         {
             var sut = new InterfacePasswordValidator(
                 this.mockLengthValidator.Object,
@@ -58,7 +57,56 @@ namespace EulerLibrary2.PasswordValidator
                 this.implementation,
                 this.mockConsecutiveCharacterValidator.Object);
 
-            Assert.IsFalse(sut.IsPasswordValid("xx"));
+            Assert.IsTrue(sut.IsPasswordValid("%"));
         }
+        [Test]
+        public void Y2()
+        {
+            var sut = new InterfacePasswordValidator(
+                this.mockLengthValidator.Object,
+                this.mockDigitsValidator.Object,
+                this.mockUppercaseValidator.Object,
+                this.mockSpecialCharacterValidator.Object,
+                this.implementation);
+
+            Assert.IsTrue(sut.IsPasswordValid("zz"));
+        }
+        [Test]
+        public void Y3()
+        {
+            var sut = new InterfacePasswordValidator(
+                this.implementation,
+                this.mockDigitsValidator.Object,
+                this.mockUppercaseValidator.Object,
+                this.mockSpecialCharacterValidator.Object,
+                this.mockConsecutiveCharacterValidator.Object);
+
+            Assert.IsTrue(sut.IsPasswordValid("xxxxxxxxxxxxxxx"));
+        }
+        [Test]
+        public void Y4()
+        {
+            var sut = new InterfacePasswordValidator(
+                this.mockLengthValidator.Object,
+                this.implementation,
+                this.mockUppercaseValidator.Object,
+                this.mockSpecialCharacterValidator.Object,
+                this.mockConsecutiveCharacterValidator.Object);
+
+            Assert.IsTrue(sut.IsPasswordValid("77"));
+        }
+        [Test]
+        public void Y5()
+        {
+            var sut = new InterfacePasswordValidator(
+                this.implementation,
+                this.implementation,
+                this.implementation,
+                this.implementation,
+                this.implementation);
+
+            Assert.IsTrue(sut.IsPasswordValid("78dgtgbfthj%^&FG"));
+        }
+
     }
 }

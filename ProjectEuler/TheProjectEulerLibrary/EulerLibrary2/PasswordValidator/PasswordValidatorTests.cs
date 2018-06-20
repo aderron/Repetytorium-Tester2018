@@ -18,7 +18,7 @@ namespace EulerLibrary2.PasswordValidator
          * Can not have consecutive characters (same character twice, ie. x22xd)
          * 
          * */
-
+         /*
         private IPasswordValidator validator = new ExternalPasswordValidator();
 
         [Test]
@@ -38,7 +38,6 @@ namespace EulerLibrary2.PasswordValidator
                 () => this.validator.IsPasswordValid(tooShortPassword));
             Assert.AreEqual(expectedMessage, exception.Message);
         }
-<<<<<<< HEAD
         [Test]
         public void OneDig()
         {
@@ -136,7 +135,7 @@ namespace EulerLibrary2.PasswordValidator
             var exception = Assert.Throws<ApplicationException>(
                 () => this.validator.IsPasswordValid(password));
             var expectedMessage = "onlynorm";
-=======
+*/
 
         [Test]
         public void IsLengthOk_ShortPasswords_ShouldThrowException()
@@ -157,7 +156,6 @@ namespace EulerLibrary2.PasswordValidator
             }
 
             Assert.IsEmpty(errors, string.Join(Environment.NewLine, errors));
->>>>>>> eb4eac77773f59561ee5487e7593b6df2bf827a6
         }
 
         [Test]
