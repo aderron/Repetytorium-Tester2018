@@ -12,14 +12,12 @@ namespace TestWebsite.Models
 
         private readonly List<int> digits;
 
-        private readonly int[] weights = new[] {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
-
         public Pesel(string value)
         {
             if (value?.Length == 11)
             {
                 var parsedDigits = value.ToCharArray().Select(c => c - '0').ToList();
-                if (this.ValidatePesel(parsedDigits))
+                if (ValidatePeselChecksum(parsedDigits))
                 {
                     this.digits = parsedDigits;
                     this.value = long.Parse(value);
@@ -54,22 +52,36 @@ namespace TestWebsite.Models
             }
         }
 
-        private bool ValidatePesel(IList<int> digits)
+        public static bool ValidatePeselChecksum(IList<int> peselDigits)
         {
-            if (digits.Count != 11)
+            try
+            {
+                var checksumDigit = GetPeselChecksum(peselDigits);
+                return peselDigits[10] == checksumDigit;
+            }
+            catch
             {
                 return false;
+            }
+        }
+
+        public static int GetPeselChecksum(IList<int> peselDigits)
+        {
+            var weights = new[] { 1, 3, 7, 9, 1, 3, 7, 9, 1, 3 };
+
+            if (peselDigits.Count != 11)
+            {
+                throw new ArgumentException($"Invalid pesel");
             }
 
             var sum = 0;
             for (var i = 0; i < 10; i++)
             {
-                sum += digits[i] * this.weights[i];
+                sum += peselDigits[i] * weights[i];
             }
 
             var checksumDigit = 10 - (sum % 10);
-
-            return digits[10] == checksumDigit;
+            return checksumDigit;
         }
 
         public bool Equals(Pesel other)

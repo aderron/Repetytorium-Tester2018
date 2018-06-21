@@ -48,5 +48,16 @@ namespace TestWebsite.Tests.Model
         {
             Assert.Throws<ApplicationException>(() => new Pesel(invalidPesel));
         }
+
+        [Test]
+        public void Pesel_33333333338_ShouldThrowException()
+        {
+            Assert.Catch(() => new Pesel("33333333338"));
+            //88888888888
+
+            //25280312003
+            //25250312000
+            //25320312000
+        }
     }
 }
