@@ -1,0 +1,19 @@
+Poprawne wartoœci
+90040601275
+90240601271
+92080901276
+
+Niepoprawne wartoœci
+90040601273
+90240601275
+92083201278
+
+
+1.  Wpisanie poprawnego PESELU 33333333338 niepoprawny ze wzglêdu na dzieñ
+
+Steps to reproduce: PESEL incorrect 33333333338
+
+Expected result: 400
+
+Actual result: Error 200
+

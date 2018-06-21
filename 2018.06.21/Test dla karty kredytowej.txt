@@ -1,0 +1,69 @@
+Scenariusze testowania kart kredytowych
+
+1. Przypadek z poprawnymi danymi:
+
+		Oczekiwany wynik: zadzia³anie walidacji.
+
+		Podajê nr PAN: 4111111111111111
+		Podajê poprawne Expiration M: 06
+		Podajê poprawn¹ wartoœæ Y: 21
+		Podajê poprawny nr CVV: 215
+		
+		Pole checksum otrzymuje wartoœæ Valid
+		
+		Dzia³a opcja Submit
+
+
+
+2. Przypadek z b³êdnym numerem karty kredytowej:
+
+		Oczekiwany wynik, niepoprawna walidacja
+
+		Podajê b³êdny nr PAN: 1111 1111 1111 1111
+		Podajê prawid³ow¹ wartoœæ Expiration M: 06
+		Podajê prawid³ow¹ wartoœæ Y: 21
+		Podajê poprawny nr CVV: 215
+		
+		Pole checksum otrzymuje wartoœæ Invalid
+		
+		Nie zadzia³a opcja submit.
+		
+		
+3. Przypadk z b³êdn¹ wartoœci¹ miesi¹ca:
+
+		Oczekiwany wynik, niepoprawna walidacja
+		
+		Podajê prawid³owy nr PAN: 4111111111111111
+		Podajê niepoprawn¹ wartoœæ Expiration M: 14
+		Podajê prawid³ow¹ wartoœ Y: 21
+		Podajê poprawny nr CVV: 215
+		
+		Pole checksum otrzymuje wartoœæ Invalid
+		
+		Nie zadzia³a opcja submit.
+	
+4. Przypadk z b³êdn¹ wartoœci¹ year:
+
+		Oczekiwany wynik, niepoprawna walidacja
+		
+		Podajê prawid³owy nr PAN: 4111111111111111
+		Podajê niepoprawn¹ wartoœæ Expiration M: 06
+		Podajê prawid³ow¹ wartoœ Y: 25
+		Podajê poprawny nr CVV: 215
+		
+		Pole checksum otrzymuje wartoœæ Invalid
+		
+		Nie zadzia³a opcja submit.
+		
+5. Przypadk z b³êdn¹ wartoœci¹ CVV:
+
+		Oczekiwany wynik, niepoprawna walidacja
+		
+		Podajê prawid³owy nr PAN: 4111111111111111
+		Podajê niepoprawn¹ wartoœæ Expiration M: 06
+		Podajê prawid³ow¹ wartoœ Y: 25
+		Podajê poprawny nr CVV: 13
+		
+		Pole checksum otrzymuje wartoœæ Invalid
+		
+		Nie zadzia³a opcja submit.
