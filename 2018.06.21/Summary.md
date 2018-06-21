@@ -32,7 +32,11 @@
 11. Umiejętność zaraportowania defektu (Defet Report)
 12. Znajomość cyklu wytwarzania oprogramowania/życia defektu
 
+15. Znajomość koncepcyjna Cointnous Testing, Continous Integration i Continous Deployment
 
+## Soft skillz
+
+1. Wiecie, ze warto być odpowiedzialnym za to co się robi
 
 ###
 
