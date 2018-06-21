@@ -4,11 +4,14 @@ CRUD przypadki testowe
 CREATE
 Pozytywne
 1.Tworzymy osobê ktora ma jako string imie, pesel i wiek jako liczbe calkowita
-2.
+
 
 Negatywne
-1.Tworzymy osobê, wysy³aj¹c zapytanie do end pointa /people/Post ktora nie ma wieku
+1.Tworzymy osobê, wysy³aj¹c zapytanie do end pointa /people/Post ktora nie ma wieku (400)
 2.Tworzymy osobê, wysy³aj¹c zapytanie do end pointa /people/Post ktora nie ma peselu 
+3.Osoba z dlugim imieniem
+4.Osoba ktorej wiek powyzej 130 lat
+5.Osoba z zlym peselem(za krotkim)
 
 READ
 Pozytywne
@@ -16,27 +19,33 @@ Pozytywne
 1. Wysy³amy zapytanie do end pointa /people/GetByPesel/{pesel} podajac pesel osoby, ktora by³a wczesniej dodana
 
 Negatywny
-2. Wysy³amy zapytanie do end pointa /people/GetByPesel/{pesel} podajac pesel osoby, ktora nie figuruje na liscie
+2. Wysy³amy zapytanie do end pointa /people/GetByPesel/{pesel} podajac pesel osoby, ktora nie figuruje na liscie (404 poprawny pesel ktory nie isnietje)
 
 
 UPDATE
 
 Pozytywne
 
-1. Wysy³amy zapytanie do end pointa /people/Update modyfikujac pesel 
+1. Wysy³amy zapytanie do end pointa /people/Update modyfikujac wiek, imie
 1. Wysy³amy zapytanie do end pointa /people/Update modyfikujac imie
 
 Negatywne
 
-1. Wysy³amy zapytanie do end pointa /people/Update modyfikujac imie osoby ktora nie by³a wczesniej dodana
+1. Wysy³amy zapytanie do end pointa /people/Update modyfikujac imie osoby ktora nie by³a wczesniej dodana 404
 2. Wysy³amy puste zapytanie do end pointa /people/Update (nie podajac imienia osoby ktora chcemy updatetowac)
 3. Wysy³amy zapytanie do end pointa /people/Update modyfikujac wiek osoby ktora nie by³a wczesniej dodana
 
-
+pesel ktory nie istnieje
+zly pesel - negatywny 400
+z³e imie
+z³y wiek (ujemny powyzej 130) 
+imie null 400
 DELETE
 
 POZYTYWNE
 1.Wys³anie zapytania do end pointa /people/Delete podaj¹c dane osoby, ktora wczesniej by³a dodana
+pesel osoby ktora istnieje
 
 NEGATYWNE
-1.Wys³anie zapytania do end pointa /people/Delete podaj¹c dane osoby, ktora nie by³a wczesniej dodana
+1.Wys³anie zapytania do end pointa /people/Delete podaj¹c dane osoby, ktora nie by³a wczesniej dodana 404
+z³y sformatowany pesel 400
