@@ -36,12 +36,7 @@ namespace SeleniumTests
             var aWeight = a.R + a.G + a.B;
             var bWeight = b.R + b.G + b.B;
 
-            if (aWeight > bWeight)
-            {
-                return Color.FromArgb(aWeight / 3, 0, 0);
-            }
-
-            return Color.FromArgb(0, bWeight / 3, 0);
+            return aWeight > bWeight ? Color.FromArgb(aWeight / 3, 0, 0) : Color.FromArgb(0, bWeight / 3, 0);
         }
 
         public static Image ToImage(byte[] byteArrayIn)

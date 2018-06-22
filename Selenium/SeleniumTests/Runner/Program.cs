@@ -7,13 +7,13 @@ namespace Runner
     {
         private static void Main(string[] args)
         {
-            var x = new ChromeTests();
-            //x.PerformTest();
-            var a = "s1.png";
-            var b = "s2.png";
+            CompareImages();
+        }
 
-            var bitmapA = new Bitmap(a);
-            var bitmapB = new Bitmap(b);
+        private static void CompareImages()
+        {
+            var bitmapA = new Bitmap("s1.png");
+            var bitmapB = new Bitmap("s2.png");
 
             var output = ImageTools.CompareImages(bitmapA, bitmapB);
 
