@@ -1,0 +1,22 @@
+Instalacja Linuxa Live (i nie tylko) na Pendrive
+
+1.	Pobieramy obraz .iso wybranego linuxa
+	- Ubuntu (polecany) https://www.ubuntu.com/download/desktop
+	- Mint (opcjonalny) https://www.linuxmint.com/download.php polecam Cinnamon 64 bit
+		- (opcjonalnie) Może być obraz dowolnego systemu Linux, Windows (XP, Vista, 8, 8.1, 10, Server...) lub dowolny inny.
+
+2.	Pobieramy program do nagrywania obrazów płyt na pendrive
+	- Rufus https://rufus.akeo.ie/ może być w wersji Portable
+	czyli uruchomi się bez instalowania w systemie
+	
+3.	Nagranie obrazu płyty na pedrive
+	- Po uruchomieniu Rufusa Wybieramy z listy urządzenie na którym ma zostać zapisany obraz
+	- Poniżej jako wybór bootowania ustawiamy "Dysk lub obraz ISO"
+	- Po prawej klikamy "wybierz", znajdujemy nasz obraz .iso i klikamy "Otwórz"
+	- W schemacie partycjonowania wybieramy "MBR"
+		- (Opcjonalnie) Po wybraniu Windowsa 7 lub nowszego można w opcjach obrazu wybrać
+		"Windows To Go" co pozwoli utworzyć na Pendrivie działającego Windowsa a nie tylko
+		obraz do zainstalowania Windowsa na dysku
+	- Klikamy na dole "START" i czekamy na nagranie obrazu.
+	
+4. Gotowe. W wybranym komputerze przy uruchamianiu bootujemy naszego Pendriva.
