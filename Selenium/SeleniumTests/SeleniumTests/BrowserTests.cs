@@ -3,6 +3,7 @@ using System.IO;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Remote;
 
 namespace SeleniumTests
 {
@@ -12,27 +13,7 @@ namespace SeleniumTests
         {
             using (var chrome = new ChromeDriver())
             {
-                // Go to the home page
-                chrome.Navigate().GoToUrl("http://testing-ground.scraping.pro/login");
-
-                // Get the page elements
-                var userNameField = chrome.FindElementById("usr");
-                var userPasswordField = chrome.FindElementById("pwd");
-                var loginButton = chrome.FindElementByXPath("//input[@value='Login']");
-
-                // Type user name and password
-                userNameField.SendKeys("admin");
-                userPasswordField.SendKeys("12345");
-
-                // and click the login button
-                loginButton.Click();
-
-                // Extract the text and save it into result.txt
-                var result = chrome.FindElementByXPath("//div[@id='case_login']/h3").Text;
-                File.WriteAllText("result.txt", result);
-
-                // Take a screenshot and save it into screen.png
-                chrome.GetScreenshot().SaveAsFile(@"screen-chrome.png");
+                LoginOnTestPage(chrome, "screen-chrome");
             }
         }
 
@@ -40,6 +21,7 @@ namespace SeleniumTests
         {
             using (var firefox = new FirefoxDriver())
             {
+                LoginOnTestPage(firefox, "screen-firefox");
             }
         }
 
@@ -47,7 +29,35 @@ namespace SeleniumTests
         {
             using (var ie = new InternetExplorerDriver())
             {
+                LoginOnTestPage(ie, "screen-ie");
             }
+        }
+
+        public static void LoginOnTestPage(
+            RemoteWebDriver driver, 
+            string screenshotName)
+        {
+            // Go to the home page
+            driver.Navigate().GoToUrl("http://testing-ground.scraping.pro/login");
+
+            // Get the page elements
+            var userNameField = driver.FindElementById("usr");
+            var userPasswordField = driver.FindElementById("pwd");
+            var loginButton = driver.FindElementByXPath("//input[@value='Login']");
+
+            // Type user name and password
+            userNameField.SendKeys("admin");
+            userPasswordField.SendKeys("12345");
+
+            // and click the login button
+            loginButton.Click();
+
+            // Extract the text and save it into result.txt
+            var result = driver.FindElementByXPath("//div[@id='case_login']/h3").Text;
+            File.WriteAllText(screenshotName + ".txt", result);
+
+            // Take a screenshot and save it into screen.png
+            driver.GetScreenshot().SaveAsFile(screenshotName + ".png");
         }
     }
 }
