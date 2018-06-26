@@ -19,6 +19,7 @@
     * Swagger
 3. Postman
 4. Notepad++/Visual studio code
+5. Slack
 
 ## Umiejętności (Hard skills)
 
