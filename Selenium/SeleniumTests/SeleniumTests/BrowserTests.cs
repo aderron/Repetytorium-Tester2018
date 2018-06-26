@@ -1,6 +1,7 @@
 ﻿using System.Drawing.Imaging;
 using System.IO;
 using System.Threading;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
@@ -65,19 +66,23 @@ namespace SeleniumTests
 
         public static void WpTest()
         {
-            using (var chrome = new ChromeDriver())
+            var options = new ChromeOptions();
+            options.AddArgument("--start-maximized");
+
+            using (var chrome = new ChromeDriver(options))
             {
                 chrome.Navigate().GoToUrl("https://www.wp.pl/");
-                Thread.Sleep(3000);
-                var rodobutton = chrome.FindElementByXPath("/html/body/div[3]/div/div[4]/div");
-                rodobutton.Click();
-                Thread.Sleep(3000);
-                var pedofilLink = chrome.FindElementByXPath("//*[@id=\"text_topnews\"]/li[4]/a/div");
-            
-                // Potrebne, bo link jest na dole strony i jest przykryty przez inny badziew
-                var lastLink = chrome.FindElementByXPath("//*[@id=\"text_topnews\"]/li[15]/a/div");
+                Thread.Sleep(500);
+                var rodoButton = chrome.FindElementByXPath("/html/body/div[3]/div/div[4]/div");
+                rodoButton.Click();
+                Thread.Sleep(500);
+                var pedofilLink = chrome.FindElementByXPath("//*[@id=\"text_topnews\"]/li[4]/a");
+                chrome.ExecuteScript($"scroll(0, {pedofilLink.Location.Y - 200})");
+
                 pedofilLink.Click();
-                Thread.Sleep(3000);
+                Thread.Sleep(500);
+
+                chrome.Quit();
             }
         }
     }
