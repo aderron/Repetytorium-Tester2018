@@ -9,6 +9,12 @@ namespace Runner
     {
         private static void Main(string[] args)
         {
+            // Test3Browsers();
+            BrowserTests.WpTest();
+        }
+
+        private static void Test3Browsers()
+        {
             BrowserTests.ChromeLoginOnTestPage("screen-chrome");
             BrowserTests.FirefoxLoginOnTestPage("screen-firefox");
             BrowserTests.IeLoginOnTestPage("screen-edge");

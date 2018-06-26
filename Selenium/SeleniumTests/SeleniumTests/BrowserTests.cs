@@ -62,5 +62,23 @@ namespace SeleniumTests
             // Take a screenshot and save it into screen.png
             driver.GetScreenshot().SaveAsFile(screenshotName + ".png");
         }
+
+        public static void WpTest()
+        {
+            using (var chrome = new ChromeDriver())
+            {
+                chrome.Navigate().GoToUrl("https://www.wp.pl/");
+                Thread.Sleep(3000);
+                var rodobutton = chrome.FindElementByXPath("/html/body/div[3]/div/div[4]/div");
+                rodobutton.Click();
+                Thread.Sleep(3000);
+                var pedofilLink = chrome.FindElementByXPath("//*[@id=\"text_topnews\"]/li[4]/a/div");
+            
+                // Potrebne, bo link jest na dole strony i jest przykryty przez inny badziew
+                var lastLink = chrome.FindElementByXPath("//*[@id=\"text_topnews\"]/li[15]/a/div");
+                pedofilLink.Click();
+                Thread.Sleep(3000);
+            }
+        }
     }
 }
