@@ -80,8 +80,29 @@ namespace SeleniumTests
                 chrome.ExecuteScript($"scroll(0, {pedofilLink.Location.Y - 200})");
 
                 pedofilLink.Click();
-                Thread.Sleep(500);
+                Thread.Sleep(3000);
 
+                var comment = chrome.FindElementByXPath(
+                    "/html/body/div[2]/div/table/tbody/tr[1]/td/div[6]/div[2]/div/div[2]/div[1]/div[2]/div/div/a/div/div[1]/div");
+
+                chrome.ExecuteScript($"scroll(0, {comment.Location.Y - 300})");
+                Thread.Sleep(500);
+                comment.Click();
+
+                Thread.Sleep(500);
+                var commentInput = chrome.FindElementById("text");
+                chrome.ExecuteScript($"scroll(0, {commentInput.Location.Y - 200})");
+                commentInput.SendKeys("Co ten PiS robi z tym krajem");
+
+                Thread.Sleep(500);
+                var nameInput = chrome.FindElementByXPath("//*[@id=\"comments\"]/div[2]/div[1]/form/div[2]/input");
+                nameInput.SendKeys("Nowoczesny patriota");
+
+                Thread.Sleep(500);
+                var submitButton = chrome.FindElementByXPath("//*[@id=\"comments\"]/div[2]/div[1]/form/button");
+                submitButton.Click();
+
+                Thread.Sleep(2500);
                 chrome.Quit();
             }
         }
