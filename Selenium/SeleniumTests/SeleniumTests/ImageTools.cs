@@ -29,6 +29,7 @@ namespace SeleniumTests
 
         public static Color Grayscale(Color a)
         {
+            return Color.Black;
             var aWeight = (a.R + a.G + a.B) / 3;
             var lightenColor = (255 - aWeight) / 2 + aWeight;
             return Color.FromArgb(lightenColor, lightenColor, lightenColor);
