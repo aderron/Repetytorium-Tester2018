@@ -1,5 +1,6 @@
 ﻿using System.Drawing.Imaging;
 using System.IO;
+using System.Threading;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
@@ -52,6 +53,7 @@ namespace SeleniumTests
 
             // and click the login button
             loginButton.Click();
+            Thread.Sleep(2000);
 
             // Extract the text and save it into result.txt
             var result = driver.FindElementByXPath("//div[@id='case_login']/h3").Text;
