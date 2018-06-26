@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.IO;
 
 namespace SeleniumTests
@@ -7,11 +8,13 @@ namespace SeleniumTests
     {
         public static Bitmap CompareImages(Bitmap a, Bitmap b)
         {
-            var bitmap = new Bitmap(a.Width, a.Height);
+            var minWidth = Math.Min(a.Width, b.Width);
+            var minHeight = Math.Min(a.Height, b.Height);
+            var bitmap = new Bitmap(minWidth, minHeight);
 
-            for (var column = 0; column < a.Height; column++)
+            for (var column = 0; column < minHeight; column++)
             {
-                for (var row = 0; row < a.Width; row++)
+                for (var row = 0; row < minWidth; row++)
                 {
                     var aPixel = a.GetPixel(row, column);
                     var bPixel = b.GetPixel(row, column);

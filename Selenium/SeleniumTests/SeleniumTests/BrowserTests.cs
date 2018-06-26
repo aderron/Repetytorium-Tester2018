@@ -11,27 +11,27 @@ namespace SeleniumTests
 {
     public static class BrowserTests
     {
-        public static void ChromeLoginOnTestPage()
+        public static void ChromeLoginOnTestPage(string name)
         {
             using (var chrome = new ChromeDriver())
             {
-                LoginOnTestPage(chrome, "screen-chrome");
+                LoginOnTestPage(chrome, name);
             }
         }
 
-        public static void FirefoxLoginOnTestPage()
+        public static void FirefoxLoginOnTestPage(string name)
         {
             using (var firefox = new FirefoxDriver())
             {
-                LoginOnTestPage(firefox, "screen-firefox");
+                LoginOnTestPage(firefox, name);
             }
         }
 
-        public static void IeLoginOnTestPage()
+        public static void IeLoginOnTestPage(string name)
         {
             using (var edge = new EdgeDriver())
             {
-                LoginOnTestPage(edge, "screen-ie");
+                LoginOnTestPage(edge, name);
             }
         }
 
