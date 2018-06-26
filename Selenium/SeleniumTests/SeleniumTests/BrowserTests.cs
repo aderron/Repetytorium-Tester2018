@@ -1,6 +1,7 @@
 ﻿using System.Drawing.Imaging;
 using System.IO;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
@@ -27,9 +28,9 @@ namespace SeleniumTests
 
         public static void IeLoginOnTestPage()
         {
-            using (var ie = new InternetExplorerDriver())
+            using (var edge = new EdgeDriver())
             {
-                LoginOnTestPage(ie, "screen-ie");
+                LoginOnTestPage(edge, "screen-ie");
             }
         }
 
