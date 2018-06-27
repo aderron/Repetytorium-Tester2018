@@ -6,7 +6,7 @@ describe("A Javascript is stupid because", function() {
     });
 
     it("when evaluating \"0\" == 0 returns true", function() {
-        expect("0"==0).toBe(true)
+        expect("0"==0).toBe(true);
     });
 });
   
