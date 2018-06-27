@@ -8,3 +8,7 @@
 [ 2, 3, 4, 7, 4, 9, 5.2, 2, 6, 5, 5, 7, 12, 3, 123] 
 na tablicę stringów:
 [ "2", "3", "4", "7", "4", "9", "5.2", "2", "6", "5", "5", "7", "12", "3", "123"]
+
+4. SYLABUS BĘDZIE NA EGZAMINIE (boski głos)
+
+5. Egzamin będzie na 10 (cz. teoretyczna i praktyczna)
