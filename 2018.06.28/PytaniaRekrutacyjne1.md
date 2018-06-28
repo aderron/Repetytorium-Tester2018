@@ -53,31 +53,31 @@
 			- ostrzeżenia dla użytkowników
 			- powinien móc robić to co zwykły użytkownik
 			
-	- pendrive
-		- podłączenie pendriva
-		- uzyskanie dostępu do urządzenia przez system
-		- system określa czy użytkownik ma uprawnienia do przeglądania zawartości pendriva
-		- użytkownik może przeglądać zawartość, dodawać, usuwać
-		
-	- kubek
-		aktorzy: operator kubka, użytkownik kubka
-		- kto będzie użytkownikiem kubka? jakie są dla niego wymagania?
-		/jak nie ma wymagań, to możemy założyć że ma to być kubek dla obcych pijących przez odbyt/
-		- z jakiego materiału, czy nie ma ostrych krawędzi, czy nie ma sznurka (xd)
-		- use case: rzucić kubkiem, wlać wodę, dziecko może kubek gryźć, czy da się łatwo odkręcić, 
-			czy instrukcja jest jasna
-			
-	- samochód
-		rodzinny, dla 4 osób
-		- sprawdź, czy 4 osoby się zmieszczą i czują się komfortowo
-		- sprawdź, czy jeździ
+        - pendrive
+            - podłączenie pendriva
+            - uzyskanie dostępu do urządzenia przez system
+            - system określa czy użytkownik ma uprawnienia do przeglądania zawartości pendriva
+            - użytkownik może przeglądać zawartość, dodawać, usuwać
+            
+        - kubek
+            aktorzy: operator kubka, użytkownik kubka
+            - kto będzie użytkownikiem kubka? jakie są dla niego wymagania?
+            /jak nie ma wymagań, to możemy założyć że ma to być kubek dla obcych pijących przez odbyt/
+            - z jakiego materiału, czy nie ma ostrych krawędzi, czy nie ma sznurka (xd)
+            - use case: rzucić kubkiem, wlać wodę, dziecko może kubek gryźć, czy da się łatwo odkręcić, 
+                czy instrukcja jest jasna
+                
+        - samochód
+            rodzinny, dla 4 osób
+            - sprawdź, czy 4 osoby się zmieszczą i czują się komfortowo
+            - sprawdź, czy jeździ
 
-	- krzesło
-		dla dorosłych
-		- jaką wagę ma krzesło
-		- jaka wytrzymałość wagowa
-		- czy da się siedzieć
-		- czy da się przesunąć
+        - krzesło
+            dla dorosłych
+            - jaką wagę ma krzesło
+            - jaka wytrzymałość wagowa
+            - czy da się siedzieć
+            - czy da się przesunąć
 	
 
 7.    Napisać program na tablicy w dowolnym języku programowania: użytkownik wprowadza dwie dowolne liczby, odczytujemy je (np. w Java użyć odczytywania Scanner – wymagane było to), napisać program, który będzie zwracał wynik mnożenia tych liczb bez używania znaku mnożenia * -> dodawanie w pętli (trzeba było napisać pełen kod w danym języku na tablicy).
@@ -141,15 +141,13 @@ Lub
 			(jedno BIP od biosa oznaczało, że wszystko działa, 
 			więcej BIPów oznaczało że coś nie działa z płytą główną lub innymi komponentami,
 			jak w ogóle nie BIPał to w ogóle masakra)
-		- możemy podłączyć ekran (myszkę, klawiaturę, coś na USB) do innego komputera (portu) 
-			albo inny ekran (urządzenie) podłączyć do naszego kompa
+		- możemy podłączyć ekran (myszkę, klawiaturę, coś na USB) do innego komputera (portu) albo inny ekran (urządzenie) podłączyć do naszego kompa
 	
 
 11.    Jak sobie poradzę, gdy jest problem z Internetem – różne przypadki.
 		- sprawdzić CO nie działa
-			- strona internetowa (wpisać w CMD ping 8.8.8.8 -t ENTER. Plus ping 9.9.9.9 -t lub 1.1.1.1 -t)
-			- można w CMD wpisać też spingować nasze IP (jeśli się nie da, to problem jest między kompem a routerem. 
-			jeśli da się - to problem jest między routerem a dostawcą internetu)
+			- strona internetowa (wpisać w CMD ping 8.8.8.8 -t [ENTER] lub 9.9.9.9 lub 1.1.1.1)
+			- można w CMD też spingować IP routera (jeśli się nie da, to problem jest między kompem a routerem, jeśli da się - to problem jest między routerem a dostawcą internetu)
 		- reset routera 
 
 12.    Jak połączyć się zdalnie z innym komputerem, jakie znam możliwości.
