@@ -46,12 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ex1.cs" />
-    <Compile Include="Ex2.cs" />
+    <Compile Include="Excercise1\Ex1.cs" />
+    <Compile Include="Excercise2\Ex2.cs" />
+    <Compile Include="Excercise3\Ex3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Ex2Data.json" />
+    <None Include="Excercise2\Ex2Data.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
